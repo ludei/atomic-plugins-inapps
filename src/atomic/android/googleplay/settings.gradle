@@ -1,0 +1,3 @@
+rootProject.name = 'inapps-googleplay'
+include ':inapps-common'
+project(':inapps-common').projectDir = new File('../common')

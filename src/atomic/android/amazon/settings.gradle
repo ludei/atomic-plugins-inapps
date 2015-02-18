@@ -1,0 +1,3 @@
+rootProject.name = 'inapps-amazon'
+include ':inapps-common'
+project(':inapps-common').projectDir = new File('../common')
