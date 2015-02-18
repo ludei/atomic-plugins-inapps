@@ -176,7 +176,7 @@ public abstract class AbstractInAppService implements InAppService {
         PurchaseCallback callback = mPurchaseCallbacks.get(purchase.productId);
         if (callback != null) {
             callback.onComplete(purchase, null);
-            mPurchaseCallbacks.remove(callback);
+            mPurchaseCallbacks.remove(purchase.productId);
         }
     }
 
@@ -208,6 +208,7 @@ public abstract class AbstractInAppService implements InAppService {
 
     /**
      * Return pseudo unique ID
+     *
      * @return ID
      */
     public static String getUniquePseudoID()

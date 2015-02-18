@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Describes a InApp product.
+ * Describes an InApp product.
  *
  * @author Imanol Fernández
  * @version 1.0
@@ -56,10 +56,10 @@ public class InAppProduct {
     }
 
     /**
-     * Gets a InAppProduct object from a JSON object.
+     * Gets an InAppProduct object from a JSON object.
      *
      * @param object A JSON object containing the product information.
-     * @return A InAppProduct object.
+     * @return An InAppProduct object.
      */
     static InAppProduct fromJSON(JSONObject object) {
         InAppProduct product = new InAppProduct();

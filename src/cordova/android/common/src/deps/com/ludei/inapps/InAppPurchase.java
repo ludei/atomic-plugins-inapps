@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Describes a InApp purchase object.
+ * Describes an InApp purchase object.
  *
  * @author Imanol Fernández
  * @version 1.0
@@ -30,12 +30,21 @@ public class InAppPurchase {
     public Date purchaseDate;
 
     /**
-     * The cuantity of the product purchased.
+     * @return The date when the purchase was completed in unix time
+     */
+    public long unixTime()
+    {
+        return purchaseDate != null ? purchaseDate.getTime() : 0;
+    }
+
+    /**
+     * The quantity of the product purchased.
      */
     public int quantity;
 
     /**
      * Transforms the purchase information into a JSON object.
+     *
      * @return A JSONObject containing the purchase information.
      */
     public JSONObject toJSON() {

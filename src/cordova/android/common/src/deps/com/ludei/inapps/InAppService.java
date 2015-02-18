@@ -149,6 +149,7 @@ public interface InAppService {
 
         /**
          * Class constructor specifying a code and a message.
+         *
          * @param code The error code.
          * @param message The message describing the error.
          */
