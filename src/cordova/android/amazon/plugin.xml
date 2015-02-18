@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.ludei.inapps.android.amazon" version="1.0.0">
+    <name>InAppsAmazon</name>
+    <description>Amazon In app purchase implementation</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,inapps</keywords>
+    <platform name="android">
+        <source-file src="src/AmazonInAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />
+        <source-file src="src/deps/com/ludei/inapps/amazon/AmazonInAppService.java" target-dir="src/com/ludei/inapps/amazon" />
+        <source-file src="src/deps/com/ludei/inapps/amazon/AmazonObserver.java" target-dir="src/com/ludei/inapps/amazon" />
+        <source-file src="src/deps/in-app-purchasing-1.0.3.jar" target-dir="libs"/>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="InAppService" >
+                <param name="android-package" value="com.ludei.inapps.cordova.AmazonInAppServicePlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+    </platform>
+
+    <dependency id="com.ludei.inapps.android.common" url="." subdir="src/cordova/android/common" />
+
+</plugin>

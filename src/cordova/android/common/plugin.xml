@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.ludei.inapps.android.common" version="1.0.0">
+    <name>InAppsCommon</name>
+    <description>Android In app purchase implementation</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,inapps</keywords>
+    <platform name="android">
+        <source-file src="src/InAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />
+        <source-file src="src/deps/com/ludei/inapps/InAppService.java" target-dir="src/com/ludei/inapps" />
+        <source-file src="src/deps/com/ludei/inapps/AbstractInAppService.java" target-dir="src/com/ludei/inapps" />
+        <source-file src="src/deps/com/ludei/inapps/InAppProduct.java" target-dir="src/com/ludei/inapps" />
+        <source-file src="src/deps/com/ludei/inapps/InAppPurchase.java" target-dir="src/com/ludei/inapps" />
+        <source-file src="src/deps/com/ludei/inapps/LudeiServerValidation.java" target-dir="src/com/ludei/inapps" />
+    </platform>
+</plugin>
