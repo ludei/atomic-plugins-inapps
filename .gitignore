@@ -57,3 +57,4 @@ test/cordova/InAppsTest
 test/cordova/InAppTest
 node_modules
 dist/cpp
+test/cpp/proj.android/app/libs
