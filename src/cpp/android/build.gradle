@@ -1,0 +1,69 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 21
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+        }
+    }
+
+    sourceSets.main.jni.srcDirs = [] //disable automatic ndk-build call
+}
+
+// call regular ndk-build script from app directory
+task ndkBuild(type: Exec) {
+    def ndkDir = project.plugins.findPlugin('com.android.library').getNdkFolder()
+
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine "$ndkDir/ndk-build.cmd", '-C', file('jni').absolutePath
+    } else {
+        commandLine "$ndkDir/ndk-build", '-C', file('jni').absolutePath
+    }
+}
+
+task ndkLibsToDist(type: Copy, dependsOn: 'ndkBuild', description: 'Create a JAR of the native libs') {
+    from 'obj/local'
+    from 'jni/safejni/libs'
+    into { '../../../dist/cpp/android' }
+    include '**/*.a'
+    include '**/*.so'
+    include '*.jar'
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkLibsToDist
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs  'jni/safejni/libs'
+    }
+}
+
+dependencies {
+    compile project(':inapps-common')
+    compile (name:'safejni', ext:'jar')
+}
