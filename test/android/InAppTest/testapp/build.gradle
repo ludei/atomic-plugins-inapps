@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    defaultConfig {
+        applicationId "com.ludei.basketgunner"
+        minSdkVersion 11
+        targetSdkVersion 21
+        versionCode 114
+        versionName "0.9"
+    }
+
+    productFlavors {
+        googleplay {
+        }
+        amazon {
+        }
+    }
+
+    signingConfigs {
+        release {
+            release {
+                /* Get properties from ~/.gradle/gradle.properties */
+                storeFile file(STORE_FILE)
+                storePassword STORE_PASSWORD
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    googleplayCompile project(':inapps-googleplay')
+    amazonCompile project(':inapps-amazon')
+}
