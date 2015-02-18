@@ -106,7 +106,17 @@ gulp.task('build-cordova', ['create-cordova'], function(finish) {
 
 });
 
-gulp.task("build", ["build-ios", "build-android", "build-cordova"]);
+gulp.task('build-cpp-ios', shell.task([
+  'cd test/cpp/proj.ios && xcodebuild -target BuildDist'
+]));
+
+gulp.task('build-cpp-android', shell.task([
+  'cd test/cpp/proj.android && ./gradlew assembleDebug' 
+]));
+
+gulp.task("build-cpp", ["build-cpp-ios", "build-cpp-android"]);
+
+gulp.task("build", ["build-ios", "build-android", "build-cordova", "build-cpp"]);
 
 gulp.task('doc-js', ["build-js"], function() {
 

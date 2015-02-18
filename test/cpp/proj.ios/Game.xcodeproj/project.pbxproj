@@ -476,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#output dir\nDIST=\"${PROJECT_DIR}/../../../dist/cpp/ios/\"\nmkdir -p ${DIST}\n\n#targets to lipo\n\ntargets=( \"AdService\" \"AdServiceMoPub\" \"AdServiceAdMob\" )\n\nfor target in \"${targets[@]}\"\ndo\nxcodebuild -target ${target} -configuration Release -sdk iphonesimulator\nxcodebuild -target ${target} -configuration Release -sdk iphoneos\n\nxcrun -sdk iphoneos lipo -create -output \"${DIST}/lib${target}.a\" \"${PROJECT_DIR}/build/Release-iphoneos/lib${target}.a\" \"${PROJECT_DIR}/build/Release-iphonesimulator/lib${target}.a\"\n\nxcrun -sdk iphoneos strip -S \"${DIST}/lib${target}.a\"\ndone\n\n#copy header\ncp ${PROJECT_DIR}/../../../src/cpp/*.h ${DIST}../\n\n\n\n\n\n\n\n\n";
+			shellScript = "#output dir\nDIST=\"${PROJECT_DIR}/../../../dist/cpp/ios/\"\nmkdir -p ${DIST}\n\n#targets to lipo\n\ntargets=( \"InAppService\" )\n\nfor target in \"${targets[@]}\"\ndo\nxcodebuild -target ${target} -configuration Release -sdk iphonesimulator\nxcodebuild -target ${target} -configuration Release -sdk iphoneos\n\nxcrun -sdk iphoneos lipo -create -output \"${DIST}/lib${target}.a\" \"${PROJECT_DIR}/build/Release-iphoneos/lib${target}.a\" \"${PROJECT_DIR}/build/Release-iphonesimulator/lib${target}.a\"\n\nxcrun -sdk iphoneos strip -S \"${DIST}/lib${target}.a\"\ndone\n\n#copy header\ncp ${PROJECT_DIR}/../../../src/cpp/InAppService.h ${DIST}../\n\n\n\n\n\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
