@@ -1,0 +1,7 @@
+include ':app'
+include ':inapps-common'
+project(':inapps-common').projectDir = new File('../../../src/atomic/android/common/')
+include ':inapps-googleplay'
+project(':inapps-googleplay').projectDir = new File('../../../src/atomic/android/googleplay/')
+include ':inapps-cppbridge'
+project(':inapps-cppbridge').projectDir = new File('../../../src/cpp/android/')

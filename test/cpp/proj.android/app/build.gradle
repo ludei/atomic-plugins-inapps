@@ -1,0 +1,78 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.ludei.basketgunner"
+        minSdkVersion 9
+        targetSdkVersion 21
+        versionCode 114
+        versionName "0.9"
+    }
+
+    signingConfigs {
+        release {
+            /* Get properties from ~/.gradle/gradle.properties */
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    sourceSets {
+        main {
+            jni.srcDirs=[]
+            jniLibs.srcDirs=['libs']
+            assets.srcDirs = ['../../resources']
+        }
+    }
+}
+
+// call regular ndk-build script from app directory
+task ndkBuild(type: Exec) {
+    def ndkDir = project.plugins.findPlugin('com.android.application').getNdkFolder()
+
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine "$ndkDir/ndk-build.cmd", '-C', file('jni').absolutePath
+    } else {
+        commandLine "$ndkDir/ndk-build", '-C', file('jni').absolutePath
+    }
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs  '../../external/cocos2dx/prebuilt_android',
+              '../../../../src/cpp/android/jni/safejni/libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+
+
+    compile (name:'libcocos2dx', ext:'jar')
+    compile (name:'safejni', ext:'jar')
+
+    compile project(':inapps-cppbridge')
+    compile project(':inapps-googleplay')
+}
