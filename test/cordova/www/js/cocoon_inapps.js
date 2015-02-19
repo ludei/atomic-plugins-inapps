@@ -20,8 +20,7 @@
      *
      * // Service initialization
      * service.initialize({
-     *     autofinish: true,
-     *
+     *     autofinish: true
      * }, 
      * function(error){
      *     if(error){
@@ -126,8 +125,7 @@
          * - Error.
          * @example
          * Cocoon.InApp.initialize({
-         *     autofinish: true,
-         *
+         *     autofinish: true
          * }, function(error){
          *      if(error){
          *           console.log("Error: " + error);
@@ -171,8 +169,7 @@
          * @property {boolean} Cocoon.InApp.Settings.autofinish If True, the transactions will finish automatically.
          */
         extension.Settings = {
-            autofinish: "autofinish",
-            //MORE
+            autofinish: "autofinish"
         };
 
         /**
@@ -425,7 +422,7 @@
          * @property {string} Cocoon.InApp.Product.productId The id of the product.
          * @property {string} Cocoon.InApp.Product.title The title of the product.
          * @property {string} Cocoon.InApp.Product.description The description of the product.
-         * @property {number} Cocoon.InApp.Product.localizedPrice The localized price of the product.
+         * @property {number} Cocoon.InApp.Product.localizedPrice The price of the product in local currency.
          * @property {number} Cocoon.InApp.Product.price The price of the product.
          */
         extension.Product = {
