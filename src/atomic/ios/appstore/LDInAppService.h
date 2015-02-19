@@ -23,7 +23,7 @@
 @property (nonatomic, assign) CGFloat price;
 
 /**
- *  The price of the product in the adecuate currency.
+ *  The price of the product in local currency.
  */
 @property (nonatomic, strong) NSString * localizedPrice;
 
@@ -98,7 +98,7 @@
 @property (nonatomic, readonly) NSMutableArray * products;
 
 /**
- *  <#Description#>
+ *  Defines if purchases should finish automatically or not.
  */
 @property (nonatomic, assign) BOOL autoFinishPurchases;
 

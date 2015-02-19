@@ -32,7 +32,7 @@ public class InAppProduct {
     public double price;
 
     /**
-     * The price of the product in the adecuate currency.
+     * The price of the product in local currency.
      */
     public String localizedPrice;
 
