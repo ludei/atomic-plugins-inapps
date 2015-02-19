@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.android.googleplay" version="1.0.0">
+        id="com.ludei.inapps.android.googleplay" version="1.0.2">
     <name>InAppsGooglePlay</name>
     <description>Android Google Play In app purchase implementation</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,inapps</keywords>
+    <keywords>cordova,InApps,Google Play,InApp Purchase,Billing,IAP</keywords>
     <platform name="android">
         <source-file src="src/GooglePlayInAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />
         <source-file src="src/deps/com/ludei/inapps/googleplay/GooglePlayInAppService.java" target-dir="src/com/ludei/inapps/googleplay" />
@@ -24,6 +24,6 @@
 
     </platform>
 
-    <dependency id="com.ludei.inapps.android.common" url="." subdir="src/cordova/android/common" />
+    <dependency id="com.ludei.inapps.android.common" />
 
 </plugin>

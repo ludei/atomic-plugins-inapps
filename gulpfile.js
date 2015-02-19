@@ -75,6 +75,7 @@ gulp.task('create-cordova', ['deps-cordova', 'build-js'], function(finish) {
     	.then(function() {
 
             var plugins = [
+                    "src/cordova/android/common",
                     "src/cordova/android/googleplay",
                     "src/cordova/ios/appstore"
                 ];

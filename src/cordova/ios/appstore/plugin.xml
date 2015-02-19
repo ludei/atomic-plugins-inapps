@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.ios.appstore" version="1.0.0">
+        id="com.ludei.inapps.ios.appstore" version="1.0.1">
     <name>InAppsAppStore</name>
-    <description>iOS In app purchase implementation</description>
+    <description>iOS In App Purchase implementation</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,inapps</keywords>
+    <keywords>cordova,InApps,AppStore,InApp Purchase,Billing,IAP</keywords>
     <platform name="ios">
-        <header-file src="src/external/LDInAppService.h" />
-        <source-file src="src/external/LDInAppService.m" />
+        <header-file src="src/deps/LDInAppService.h" />
+        <source-file src="src/deps/LDInAppService.m" />
         <header-file src="src/LDInAppServicePlugin.h" />
         <source-file src="src/LDInAppServicePlugin.m" />
 
