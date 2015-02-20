@@ -57,57 +57,90 @@
 </div><!--header-->
 <div class="contents">
 
+<p>Represents the InApp Service.  
+ <a href="a00007.html#details">More...</a></p>
+
 <p>Inherited by com.ludei.inapps.AbstractInAppService.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html">ConsumeCallback</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs when a product is consumed properly or when the process fails.  <a href="a00001.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class representing an error message.  <a href="a00002.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">FetchCallback</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fetch callback returns a list of the fetched products or an error if the process fails.  <a href="a00003.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html">InAppPurchaseObserver</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs about the purchasing process.  <a href="a00006.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html">PurchaseCallback</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs when a purchase is completed or when the process fails.  <a href="a00009.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html">RestoreCallback</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs when the restoration process fails.  <a href="a00010.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html">ValidationCompletion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs if the Validation is completed or there was an error in the proccess.  <a href="a00011.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html">ValidationHandler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides information about the validation proccess.  <a href="a00012.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa73e9eac5a34d1841b339a1b01c2db0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aa73e9eac5a34d1841b339a1b01c2db0e">addPurchaseObserver</a> (<a class="el" href="a00006.html">InAppPurchaseObserver</a> observer)</td></tr>
+<tr class="memdesc:aa73e9eac5a34d1841b339a1b01c2db0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a purchase observer.  <a href="#aa73e9eac5a34d1841b339a1b01c2db0e">More...</a><br /></td></tr>
 <tr class="separator:aa73e9eac5a34d1841b339a1b01c2db0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a396f354a01ec992426bab12b019b2f3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a396f354a01ec992426bab12b019b2f3c">removePurchaseObserver</a> (<a class="el" href="a00006.html">InAppPurchaseObserver</a> observer)</td></tr>
+<tr class="memdesc:a396f354a01ec992426bab12b019b2f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a purchase observer.  <a href="#a396f354a01ec992426bab12b019b2f3c">More...</a><br /></td></tr>
 <tr class="separator:a396f354a01ec992426bab12b019b2f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c71268d3091a88300e492d8a11de29f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a3c71268d3091a88300e492d8a11de29f">fetchProducts</a> (List&lt; String &gt; productIds, <a class="el" href="a00003.html">FetchCallback</a> callback)</td></tr>
+<tr class="memdesc:a3c71268d3091a88300e492d8a11de29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches given the list of products from the remote server.  <a href="#a3c71268d3091a88300e492d8a11de29f">More...</a><br /></td></tr>
 <tr class="separator:a3c71268d3091a88300e492d8a11de29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7960790b8905ad2449f3b78695773755"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="a00004.html">InAppProduct</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a7960790b8905ad2449f3b78695773755">getProducts</a> ()</td></tr>
+<tr class="memdesc:a7960790b8905ad2449f3b78695773755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of all the local products.  <a href="#a7960790b8905ad2449f3b78695773755">More...</a><br /></td></tr>
 <tr class="separator:a7960790b8905ad2449f3b78695773755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8c5a5c5b0b9cab601ca0a8d6ee45444"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00004.html">InAppProduct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ab8c5a5c5b0b9cab601ca0a8d6ee45444">productForId</a> (String productId)</td></tr>
+<tr class="memdesc:ab8c5a5c5b0b9cab601ca0a8d6ee45444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the product of the given product id.  <a href="#ab8c5a5c5b0b9cab601ca0a8d6ee45444">More...</a><br /></td></tr>
 <tr class="separator:ab8c5a5c5b0b9cab601ca0a8d6ee45444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1009853550138dd215e72987ac5bcf5e"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a1009853550138dd215e72987ac5bcf5e">isPurchased</a> (String productId)</td></tr>
+<tr class="memdesc:a1009853550138dd215e72987ac5bcf5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the product has been purchased and false otherwise.  <a href="#a1009853550138dd215e72987ac5bcf5e">More...</a><br /></td></tr>
 <tr class="separator:a1009853550138dd215e72987ac5bcf5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79e58aaae0ccfc890ca2bf257d234a65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a79e58aaae0ccfc890ca2bf257d234a65">stockOfProduct</a> (String productId)</td></tr>
+<tr class="memdesc:a79e58aaae0ccfc890ca2bf257d234a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current stock of a given product.  <a href="#a79e58aaae0ccfc890ca2bf257d234a65">More...</a><br /></td></tr>
 <tr class="separator:a79e58aaae0ccfc890ca2bf257d234a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1b6f1c4614484551e35c2e87afd8882"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ae1b6f1c4614484551e35c2e87afd8882">restorePurchases</a> (<a class="el" href="a00010.html">RestoreCallback</a> callback)</td></tr>
+<tr class="memdesc:ae1b6f1c4614484551e35c2e87afd8882"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the purchases linked to the user account.  <a href="#ae1b6f1c4614484551e35c2e87afd8882">More...</a><br /></td></tr>
 <tr class="separator:ae1b6f1c4614484551e35c2e87afd8882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac070d818a2cba9d326571ef4d6ff2a00"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ac070d818a2cba9d326571ef4d6ff2a00">canPurchase</a> ()</td></tr>
+<tr class="memdesc:ac070d818a2cba9d326571ef4d6ff2a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the store service is avaialable and false otherwise.  <a href="#ac070d818a2cba9d326571ef4d6ff2a00">More...</a><br /></td></tr>
 <tr class="separator:ac070d818a2cba9d326571ef4d6ff2a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae78c7a56ca2c6ca9e81dab45bc637299"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ae78c7a56ca2c6ca9e81dab45bc637299">purchase</a> (String productId, <a class="el" href="a00009.html">PurchaseCallback</a> callback)</td></tr>
+<tr class="memdesc:ae78c7a56ca2c6ca9e81dab45bc637299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Purchases the product.  <a href="#ae78c7a56ca2c6ca9e81dab45bc637299">More...</a><br /></td></tr>
 <tr class="separator:ae78c7a56ca2c6ca9e81dab45bc637299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d732cf16962f089ac8d390403bfde76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a8d732cf16962f089ac8d390403bfde76">purchase</a> (String productId, int quantity, <a class="el" href="a00009.html">PurchaseCallback</a> callback)</td></tr>
+<tr class="memdesc:a8d732cf16962f089ac8d390403bfde76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Purchases the product.  <a href="#a8d732cf16962f089ac8d390403bfde76">More...</a><br /></td></tr>
 <tr class="separator:a8d732cf16962f089ac8d390403bfde76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad05cb3191616647bb93ee52fa687ab9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ad05cb3191616647bb93ee52fa687ab9c">consume</a> (String productId, int quantity, <a class="el" href="a00001.html">ConsumeCallback</a> callback)</td></tr>
+<tr class="memdesc:ad05cb3191616647bb93ee52fa687ab9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consumes a consumable product already purchased.  <a href="#ad05cb3191616647bb93ee52fa687ab9c">More...</a><br /></td></tr>
 <tr class="separator:ad05cb3191616647bb93ee52fa687ab9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#afa2c3f8acaf088790e27e4e9e9719cc1">setValidationHandler</a> (<a class="el" href="a00012.html">ValidationHandler</a> handler)</td></tr>
+<tr class="memdesc:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the given handler as validation handler to validate the purchasing process (unamaged mode).  <a href="#afa2c3f8acaf088790e27e4e9e9719cc1">More...</a><br /></td></tr>
 <tr class="separator:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca3bf1979f9c09b651c8a28fa794f2bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aca3bf1979f9c09b651c8a28fa794f2bd">setLudeiServerValidationHandler</a> ()</td></tr>
+<tr class="memdesc:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets Ludei's validation handler as the validation handler to validate the purchasing proccess (managed mode). <br /></td></tr>
+<tr class="separator:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4be5f7cb35867996990abb45b0016f"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#adc4be5f7cb35867996990abb45b0016f">onActivityResult</a> (int requestCode, int resultCode, Intent data)</td></tr>
+<tr class="memdesc:adc4be5f7cb35867996990abb45b0016f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call it when you receive onActivityResult method in your activity.  <a href="#adc4be5f7cb35867996990abb45b0016f">More...</a><br /></td></tr>
 <tr class="separator:adc4be5f7cb35867996990abb45b0016f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac311f9c61d699c247024e4a1100b8b0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac311f9c61d699c247024e4a1100b8b0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ac311f9c61d699c247024e4a1100b8b0e">onDestroy</a> ()</td></tr>
+<tr class="memdesc:ac311f9c61d699c247024e4a1100b8b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call it when the activity is destroyed. <br /></td></tr>
+<tr class="separator:ac311f9c61d699c247024e4a1100b8b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Imanol Fernández </dd></dl>
@@ -126,8 +159,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Adds a purchase observer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">observer</td><td>The purchase observer to add. </td></tr>
@@ -149,8 +180,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns true if the store service is avaialable and false otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd>A booblean that will be true if the store service is available and false otherwise. </dd></dl>
 
 </div>
@@ -184,8 +213,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Consumes a consumable product already purchased. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td>The product id of the product to consume. </td></tr>
@@ -220,8 +247,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Fetches given the list of products from the remote server. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productIds</td><td>A list of product ids. </td></tr>
@@ -244,8 +269,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the list of all the local products. </p>
 <dl class="section return"><dt>Returns</dt><dd>A list of products. </dd></dl>
 
 </div>
@@ -263,8 +286,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns true if the product has been purchased and false otherwise. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td>The product id to check. </td></tr>
@@ -304,8 +325,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Call it when you receive onActivityResult method in your activity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">requestCode</td><td>The request code. </td></tr>
@@ -315,23 +334,6 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A boolean containing the result of the activity. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac311f9c61d699c247024e4a1100b8b0e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.ludei.inapps.InAppService.onDestroy </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Call it when the activity is destroyed. </p>
 
 </div>
 </div>
@@ -348,8 +350,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the product of the given product id. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td></td></tr>
@@ -383,8 +383,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Purchases the product. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td>The product id of the product to purchase. </td></tr>
@@ -424,8 +422,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Purchases the product. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td>The product id of the product to purchase. </td></tr>
@@ -450,8 +446,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Removes a purchase observer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">observer</td><td>The purchase observer to remove. </td></tr>
@@ -474,31 +468,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Restores the purchases linked to the user account. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>The restore callback. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="aca3bf1979f9c09b651c8a28fa794f2bd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.ludei.inapps.InAppService.setLudeiServerValidationHandler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets Ludei's validation handler as the validation handler to validate the purchasing proccess (managed mode). </p>
 
 </div>
 </div>
@@ -515,8 +490,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Sets the given handler as validation handler to validate the purchasing process (unamaged mode). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handler</td><td>The validation handler </td></tr>
@@ -539,8 +512,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the current stock of a given product. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">productId</td><td>The product id to check. </td></tr>
@@ -559,7 +530,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <a href="http://www.ludei.com">
-<img class="footer" src="../../template/static/img/logo_footer.png" alt="Ludei"/> </a>
+<img class="footer" src="../../../../doc_template/doxygen/logo_footer.png" alt="Ludei"/> </a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;156 2nd St., San Francisco CA 94105&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2015 All rights reserved.Ludei, Inc.</small></address>  
 </body>
 </html>
