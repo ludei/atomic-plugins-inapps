@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'LDInAppService'
   s.version  = '1.0.0'
-  s.author   = { 'Imanol Fernandez' => 'support@ludei.com' }
+  s.author   = { 'Imanol Fernandez' => 'imanolf@ludei.com' }
   s.homepage = 'https://github.com/ludei/atomic-plugins-inapps'
   s.summary  = 'An easy to use, secure and functional InApp Purchase framework for iOS. Used as the core of Ludei Atomic Plugins for InApp purchases'
   s.license  = 'Apache 2'
