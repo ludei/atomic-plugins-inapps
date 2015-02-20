@@ -67,7 +67,7 @@ namespace ludei { namespace inapps {
      */
     enum class InAppProvider {
         /**
-         *  Automatic.
+         *  Automatic. The provider is automatically selected depending on linked classes.
          */
         AUTO,
         /**
@@ -163,7 +163,20 @@ namespace ludei { namespace inapps {
          */
         typedef std::function<void(const string & receipt, const string & productId, const ValidationCompletion & completion)>ValidationHandler;
         
+        /**
+         *  Creates a new InAppService
+         *
+         *  @param provider The InApp Provider that will be used or AUTO to automatically select the one linked within the binary
+         *  @result The InAppService with the selected provider or NULL if the provider is not available
+         */
         static InAppService * create(InAppProvider provider = InAppProvider::AUTO);
+        
+        /**
+         *  Creates a new InAppService
+         *
+         *  @param className The className of the provider
+         *  @result The InAppService with the selected provider or NULL if the provider is not available
+         */
         static InAppService * create(const char * className);
         
         virtual ~InAppService() {};
@@ -184,11 +197,13 @@ namespace ludei { namespace inapps {
         
         /**
          *  Starts the service.
+         *  You should call this method when your InAppPurchaseObservers are already registered.
          */
         virtual void start() = 0;
         
         /**
-         *  Fetches products from remote.
+         *  Requests information about products from the remote Store.
+         *  Products are cached in a local DB (@see getProducts)
          *
          *  @param productIds The ids of all the fetched products.
          *  @param callback   The FetchCallback.
@@ -205,17 +220,17 @@ namespace ludei { namespace inapps {
         /**
          *  Asociates an alias to each productId.
          *
-         *  @param productsMap     The map containing the aliases as keys and the real productId as values.
+         *  @param productsMap The map containing the aliases as keys and the real productId as values.
          */
         virtual void mapProductIds(const std::map<string, string> & productsMap) = 0;
         
         /**
-         *  Returns a product given its id.
+         *  Gets a product given its id.
          *
          *  @param productId The id of the product.
-         *  @param product   The product.
+         *  @param product   The product returned by reference
          *
-         *  @return The product.
+         *  @return True if the products exits.
          */
         virtual bool productForId(const string & productId, InAppProduct * product) const = 0;
         
@@ -238,7 +253,7 @@ namespace ludei { namespace inapps {
         virtual int32_t stockOfProduct(const string & productId) = 0;
         
         /**
-         *  Restores the purchases.
+         *  Restores already completed transactions and purchases.
          *
          *  @param callback The RestoreCallback.
          */
@@ -252,7 +267,7 @@ namespace ludei { namespace inapps {
         virtual bool canPurchase() const = 0;
         
         /**
-         *  Purchases a product.
+        *  Purchases a quantity of a specific product.
          *
          *  @param productId The id of the product.
          *  @param quantity  The quantity.
@@ -280,21 +295,23 @@ namespace ludei { namespace inapps {
         virtual void consume(const string & productId, int32_t quantity, const ConsumeCallback & callback) = 0;
         
         /**
-         *  Finishes a purchase.
+         *  Removes a finished purchase transaction from the queue.
          *
-         *  @param transactionId Tracsaction id.
+         *  @param transactionId Transaction id.
          */
         virtual void finishPurchase(const string & transactionId) = 0;
         
         /**
-         *  Sets a validation handler.
+         *  Sets a custom purchase validation handler.
+         *  Purchases are always validated to TRUE by default.
+         *  Set a custom validation handler to use you own custom server to validate purchases.
          *
          *  @param handler The validation handler.
          */
         virtual void setValidationHandler(const ValidationHandler & handler) = 0;
         
         /**
-         *  Sets Ludei's validation handler.
+         *  Use Ludei's server to validate purchases.
          */
         virtual void setLudeiServerValidationHandler() = 0;
     };
