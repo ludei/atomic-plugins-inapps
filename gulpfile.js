@@ -8,7 +8,7 @@ var cordova = require('cordova-lib').cordova.raw;
 var jsdoc = require('gulp-jsdoc');
 
 gulp.task('clean', function(finish){ 
-    del(['**/build', '**/obj', 'test/cordova/AdTest'], function (err, deletedFiles) {
+    del(['**/build', '**/obj', 'test/cordova/InAppTest'], function (err, deletedFiles) {
         console.log('Files deleted:', deletedFiles.join(', '));
         finish();
     });
