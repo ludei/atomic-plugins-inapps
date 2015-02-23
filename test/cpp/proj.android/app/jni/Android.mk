@@ -31,7 +31,7 @@ LOCAL_SRC_FILES := \
 	../../../src/AppDelegate.cpp \
 	../../../src/MainScene.cpp
 LOCAL_C_INCLUDES := \
-    /Users/mortimer/Downloads/cocos2d-x-3.4/MortimerTest/MyGame/cocos2d/cocos \
+    $(LOCAL_PATH)/../../../external/cocos2dx/include \
     $(LOCAL_PATH)/../../../src \
     $(LOCAL_PATH)/../../../../../src/cpp \
 
