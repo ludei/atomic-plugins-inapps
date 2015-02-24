@@ -57,7 +57,7 @@
 <div class="container-fluid">
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
-			<a class="brand" href="index.html"><img src='img/logomini.png' style='width: 100px;height: 35px;'/> <span class='brand-adjust'>JavaScript Documentation</span></a>
+			<a class="brand" href="index.html"><img src='img/logomini.png' style='width: 100px;height: 35px;'/> <span class='brand-adjust'>InApps JavaScript Documentation</span></a>
 			<ul class="nav">
 				
 				<li class="dropdown">
@@ -65,12 +65,6 @@
 						class="caret"></b></a>
 
 					<ul class="dropdown-menu ">
-						
-						<li>
-							
-								<a href="Cocoon.html">Cocoon</a>
-							
-						</li>
 						
 						<li>
 							
@@ -132,7 +126,6 @@
     <h2>
 
     
-        Welcome to the Atomic Plugins JavaScript Documentation!
     
     </h2>
     
@@ -144,20 +137,44 @@
 
     
         
-            <div class="description"><p>Ludei's Atomic Plugin are ...</p>
-<p>In this section you will find all the documentation you need for adding this plugins to your Cordova project. 
-Select the specific plugin below to open the relevant documentation section:
- <ul>
+            <div class="description"><p><h2>About Atomic Plugins</h2>
+    <p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
+    <br/> <p>You can contribute and help to create more awesome plugins. </p>
+    <h2>Atomic Plugins for InApps</h2>
+    <p>This <a href="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
+    <p>Currently there are 3 in-app purchase providers implemented but new ones can be easily added: </p>
+    <ul>
+    <li>Apple AppStore (iOS/Mac).</li>
+    <li>GooglePlay.</li>
+    <li>Amazon AppStore.</li> 
+    </ul>
+    <h3>Setup your project</h3>
+    <p>Releases are deployed to Cordova Plugin Registry. 
+    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon Cloud Server.</p>
+    <ul>
+    <code>cordova plugin add com.ludei.inapps.ios.appstore;</code><br/>
+    <code>cordova plugin add com.ludei.inapps.android.googleplay;</code><br/>
+    <code>cordova plugin add con.ludei.inapps.android.amazon;</code><br/>
+    </ul>
+    <p>Include the following JavaScript files in your html project:</p>
+    <ul>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon.js">cocoon.js</a></li>
+    </ul>
+    <h3>Documentation</h3>
+    <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
+    Select the specific namespace below to open the relevant documentation section:</p>
+    <ul>
     <li><a href="Cocoon.html">Cocoon</a></li>
     <li><a href="Cocoon.InApp.html">InApp</a></li>
-  </ul>
-We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
-just drop us a line at our forum and we will do our best to help you out.</p>
-<p><h3>Tools</h3>
- <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
- <a href="http://support.ludei.com/hc"><img src="img/cocoon-tools-2.png" /></a>
- <a href="https://cloud.ludei.com/"><img src="img/cocoon-tools-3.png" /></a>
- <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a></p></div>
+    </ul>
+    <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
+    just drop us a line at our forum and we will do our best to help you out.</p>
+    <h3>Tools</h3>
+    <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
+    <a href="http://support.ludei.com/hc"><img src="img/cocoon-tools-2.png" /></a>
+    <a href="https://cloud.ludei.com/"><img src="img/cocoon-tools-3.png" /></a>
+    <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a></p></div>
         
 
         
@@ -186,7 +203,7 @@ just drop us a line at our forum and we will do our best to help you out.</p>
     <!--
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cocoon.js.html">cocoon.js</a>, <a href="cocoon.js.html#sunlight-1-line-1">line 1</a>
+        <a href="cocoon_inapps.js.html">/Users/LibelulaV/Documents/ludei/atomic-plugins-inapps/src/cordova/js/cocoon_inapps.js</a>, <a href="cocoon_inapps.js.html#sunlight-1-line-1">line 1</a>
     </li></ul></dd>
     -->
 
@@ -233,13 +250,13 @@ just drop us a line at our forum and we will do our best to help you out.</p>
 					
 					
 		<span class="copyright">
-		Atomic Plugins - JavaScript Documentation by Ludei, DocStrap Copyright © 2012-2013 The contributors to the JSDoc3 and DocStrap projects.
+		Atomic Plugins for InApps - JavaScript Documentation by Ludei, DocStrap Copyright © 2012-2013 The contributors to the JSDoc3 and DocStrap projects.
 		</span>
 					<br />
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Thu Feb 19 2015 16:04:15 GMT+0100 (CET) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Tue Feb 24 2015 15:37:25 GMT+0100 (CET) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>
