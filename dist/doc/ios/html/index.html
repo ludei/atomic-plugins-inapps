@@ -40,23 +40,32 @@
 <div class="title">InApps iOS Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.</p>
+<h2>About Atomic Plugins</h2>
+    <p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
+    <p>You can contribute and help to create more awesome plugins. </p>
+    <h2>Atomic Plugins for InApps</h2>
+    <p>This <a src="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
+    <h2>iOS API</h2>
+    <h3>Introduction</h3>
 
-<p>This repo contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is alreadt available in many languagues and we have the plan to add more in the future:</p>
-<ul>
-<li>Objective-C API for pure iOS/Mac apps.</li>
-<li>Java API for pure Android apps.</li>
-<li>JavaScript API for Cordova or Cocoon based Apps.</li>
-<li>C++ API for C++ based apps and games.</li>
-</ul>
-Currently there are 3 in-app purchase providers implemented but new ones can be easily added:
-<ul>
-<li>Apple AppStore (iOS/Mac).</li>
-<li>GooglePlay.</li>
-<li>Amazon AppStore.</li> 
-</ul>
-You can contribute and help to create more awesome plugins.
-</div><!-- contents -->
+    <p>LDInAppService class provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Completed purchases are secured using Apple's keychain services and are remembered even if the user deletes the app.</p>
+    <h3>Setup your project</h3>
+    <p>You can use CocoaPods:</p>
+    <ul><samp>pod 'LDInAppService'</samp></ul>
+    <h3>API References</h3>
+    <ul>
+    <li>See <a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/atomic/ios/appstore/LDInAppService.h">LDInAppService</a> header file for a complete overview of the capabilities of the class.</li>
+    <li>See <a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/test/ios/InAppTest">InAppTest</a> for a complete project that tests all the features provided in the API.</li>
+    </ul>
+    <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
+    just drop us a line at our forum and we will do our best to help you out.</p>
+    <h3>Tools</h3>
+    <a href="http://support.ludei.com/hc/communities/public/topics"><img src="../../js/img/cocoon-tools-1.png" /></a>
+    <a href="http://support.ludei.com/hc"><img src="../../js/img/cocoon-tools-2.png" /></a>
+    <a href="https://cloud.ludei.com/"><img src="../../js/img/cocoon-tools-3.png" /></a>
+    <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="../../js/img/cocoon-tools-4.png" /></a>
+</div>
+<!-- contents -->
 <!-- HTML footer -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

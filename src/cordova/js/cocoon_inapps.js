@@ -4,7 +4,7 @@
     <p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
     <br/> <p>You can contribute and help to create more awesome plugins. </p>
     <h2>Atomic Plugins for InApps</h2>
-    <p>This <a href="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
+    <p>This <a src="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
     <p>Currently there are 3 in-app purchase providers implemented but new ones can be easily added: </p>
     <ul>
     <li>Apple AppStore (iOS/Mac).</li>
@@ -40,7 +40,6 @@
     <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a>
     * @version 1.0
     */
-
 
     /**
      * Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purchase API. 
