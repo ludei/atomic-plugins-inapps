@@ -54,8 +54,11 @@ gulp.task('build-js', function () {
 
 gulp.task('create-cordova', ['deps-cordova', 'build-js'], function(finish) {
 
+    //update final javascript files
     gulp.src('src/cordova/js/*.js')
         .pipe(gulp.dest('test/cordova/www/js'));
+    gulp.src('src/cordova/js/external/*.js')
+        .pipe(gulp.dest('test/cordova/www/js'));    
 
 	var name = "InAppTest";
 	var buildDir = path.join('test','cordova', name);
