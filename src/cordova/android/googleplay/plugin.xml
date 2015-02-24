@@ -3,7 +3,7 @@
         id="com.ludei.inapps.android.googleplay" version="1.0.2">
     <name>InAppsGooglePlay</name>
     <description>Android Google Play In app purchase implementation</description>
-    <license>Apache 2.0</license>
+    <license>MPL 2.0</license>
     <keywords>cordova,InApps,Google Play,InApp Purchase,Billing,IAP</keywords>
     <platform name="android">
         <source-file src="src/GooglePlayInAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />

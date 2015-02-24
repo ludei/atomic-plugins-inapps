@@ -3,7 +3,7 @@
         id="com.ludei.inapps.android.amazon" version="1.0.2">
     <name>InAppsAmazon</name>
     <description>Amazon In app purchase implementation</description>
-    <license>Apache 2.0</license>
+    <license>MPL 2.0</license>
     <keywords>cordova,InApps,AppStore,InApp Purchase,Billing,IAP</keywords>
     <platform name="android">
         <source-file src="src/AmazonInAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />

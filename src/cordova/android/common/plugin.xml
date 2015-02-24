@@ -3,7 +3,7 @@
         id="com.ludei.inapps.android.common" version="1.0.1">
     <name>InAppsCommon</name>
     <description>Android In app purchase implementation</description>
-    <license>Apache 2.0</license>
+    <license>MPL 2.0</license>
     <keywords>cordova,InApps,InApp Purchase,Billing,IAP</keywords>
     <platform name="android">
         <source-file src="src/InAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />

@@ -3,7 +3,7 @@
         id="com.ludei.inapps.ios.appstore" version="1.0.1">
     <name>InAppsAppStore</name>
     <description>iOS In App Purchase implementation</description>
-    <license>Apache 2.0</license>
+    <license>MPL 2.0</license>
     <keywords>cordova,InApps,AppStore,InApp Purchase,Billing,IAP</keywords>
     <platform name="ios">
         <header-file src="src/deps/LDInAppService.h" />
