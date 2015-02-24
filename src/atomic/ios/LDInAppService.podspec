@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version  = '1.0.0'
   s.author   = { 'Imanol Fernandez' => 'imanolf@ludei.com' }
   s.homepage = 'https://github.com/ludei/atomic-plugins-inapps'
-  s.summary  = 'An easy to use, secure and functional InApp Purchase framework for iOS. Used as the core of Ludei Atomic Plugins for InApp purchases'
-  s.license  = 'Apache 2'
-  s.source   = { :git => 'https://github.com/ludei/atomic-plugins-inapps.git', :tag => '1.0.0' }
+  s.summary  = 'LDInAppService class provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Completed purchases are secured using Apple's keychain services and are remembered even if the user deletes the app'
+  s.license  = 'MPL 2.0'
+  s.source   = { :git => 'https://github.com/ludei/atomic-plugins-inapps.git', :tag => '1.0.1' }
   s.source_files = 'src/atomic/ios/appstore'
   s.platform = :ios
   s.ios.deployment_target = '5.0'
