@@ -1,6 +1,51 @@
     /**
-     * This namespace represents the In-app purchases extension API.
-     *
+    * @fileOverview
+    <h2>About Atomic Plugins</h2>
+    <p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
+    <br/> <p>You can contribute and help to create more awesome plugins. </p>
+    <h2>Atomic Plugins for InApps</h2>
+    <p>This <a href="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
+    <p>Currently there are 3 in-app purchase providers implemented but new ones can be easily added: </p>
+    <ul>
+    <li>Apple AppStore (iOS/Mac).</li>
+    <li>GooglePlay.</li>
+    <li>Amazon AppStore.</li> 
+    </ul>
+    <h3>Setup your project</h3>
+    <p>Releases are deployed to Cordova Plugin Registry. 
+    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon Cloud Server.</p>
+    <ul>
+    <code>cordova plugin add com.ludei.inapps.ios.appstore;</code><br/>
+    <code>cordova plugin add com.ludei.inapps.android.googleplay;</code><br/>
+    <code>cordova plugin add con.ludei.inapps.android.amazon;</code><br/>
+    </ul>
+    <p>Include the following JavaScript files in your html project:</p>
+    <ul>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon.js">cocoon.js</a></li>
+    </ul>
+    <h3>Documentation</h3>
+    <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
+    Select the specific namespace below to open the relevant documentation section:</p>
+    <ul>
+    <li><a href="Cocoon.html">Cocoon</a></li>
+    <li><a href="Cocoon.InApp.html">InApp</a></li>
+    </ul>
+    <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
+    just drop us a line at our forum and we will do our best to help you out.</p>
+    <h3>Tools</h3>
+    <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
+    <a href="http://support.ludei.com/hc"><img src="img/cocoon-tools-2.png" /></a>
+    <a href="https://cloud.ludei.com/"><img src="img/cocoon-tools-3.png" /></a>
+    <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a>
+    * @version 1.0
+    */
+
+
+    /**
+     * Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purchase API. 
+     * Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. 
+     * Single JavaScript API for multiple IAP providers.
      *
      * @namespace Cocoon.InApp
      * @example
