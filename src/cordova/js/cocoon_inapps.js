@@ -22,7 +22,7 @@
     <p>Include the following JavaScript files in your html project:</p>
     <ul>
     <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
-    <li><a href="https://github.com/ludei/cocoon-common/blob/master/src/js/cocoon.js">cocoon.js</a></li>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/src/cordova/js/external">cocoon.js</a></li>
     </ul>
     <h3>Documentation</h3>
     <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
