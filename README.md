@@ -113,7 +113,7 @@ Releases are deployed to Maven Central. You only have to add the desired depende
     dependencies {
         compile 'com.ludei.inapps.googleplay:1.0.0' //Google Play IAP Provider
         compile 'com.ludei.inapps.amazon:1.0.0' //Amazon AppStore IAP Provider
-
+    }
 
 ###Example
 
