@@ -45,7 +45,18 @@
     <p>You can contribute and help to create more awesome plugins. </p>
     <h2>Atomic Plugins for InApps</h2>
     <p>This <a src="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
-
+    <h2>Android API</h2>
+    <h3>Introduction</h3>
+    <p>InAppService interface provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Single API for multiple IAP providers.</p>
+    <h3>Setup your project</h3>
+    <p>Releases are deployed to Maven Central. You only have to add the desired dependencies in your build.gradle:</p>
+    <ul><samp>dependencies {
+    <ul>compile 'com.ludei.inapps.googleplay:1.0.0' //Google Play IAP Provider</ul>
+    <ul>compile 'com.ludei.inapps.amazon:1.0.0' //Amazon AppStore IAP Provider</ul></samp></ul>
+    <h3>API References</h3>
+    <ul>
+    <li>See <a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/test/android/">InAppTest</a> for a complete project that tests all the features provided in the API.</li>
+    </ul>
     <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
     just drop us a line at our forum and we will do our best to help you out.</p>
     <h3>Tools</h3>
