@@ -206,8 +206,8 @@ Releases are deployed to Cordova Plugin Registry. You only have to install the d
 
 Include the following JavaScript files in your html project:
 
+[`cocoon.js`](src/cordova/js/external/cocoon.js)
 [`cocoon_inapps.js`](src/cordova/js/cocoon_inapps.js)
-[`cocoon.js`](src/cordova/js/cocoon.js)
 
 ###Example
 
