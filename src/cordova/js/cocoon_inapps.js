@@ -22,16 +22,19 @@
     <p>Include the following JavaScript files in your html project:</p>
     <ul>
     <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
-    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon.js">cocoon.js</a></li>
+    <li><a href="https://github.com/ludei/cocoon-common/blob/master/src/js/cocoon.js">cocoon.js</a></li>
     </ul>
     <h3>Documentation</h3>
     <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
     Select the specific namespace below to open the relevant documentation section:</p>
     <ul>
-    <li><a href="Cocoon.html">Cocoon</a></li>
+    <li><a href="http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.html">Cocoon</a></li>
     <li><a href="Cocoon.InApp.html">InApp</a></li>
     </ul>
-    <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
+    <h3>API Reference</h3>
+    <p>For a complete project that tests all the features provided in the API run the following command:</p>
+    <ul><code>gulp create-cordova</code></ul>
+    <br/><p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
     just drop us a line at our forum and we will do our best to help you out.</p>
     <h3>Tools</h3>
     <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
