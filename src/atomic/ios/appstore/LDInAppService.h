@@ -238,6 +238,7 @@ typedef void(^LDValidationHandler)(NSData * validationReceipt, NSString * produc
 
 /**
  *  Use Ludei's server to validate purchases.
+ *  To enable validatioon using Ludei's server you first need to create an account in Ludei's Cloud server and create a project with you bundleId.
  */
 -(void) setLudeiServerValidationHandler;
 

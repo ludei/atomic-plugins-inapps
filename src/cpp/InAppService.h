@@ -311,7 +311,8 @@ namespace ludei { namespace inapps {
         virtual void setValidationHandler(const ValidationHandler & handler) = 0;
         
         /**
-         *  Use Ludei's server to validate purchases.
+         * Use Ludei's server to validate purchases.
+         * To enable validation using Ludei's server you first need to create an account in Ludei's Cloud server and create a project with you bundleId.
          */
         virtual void setLudeiServerValidationHandler() = 0;
     };

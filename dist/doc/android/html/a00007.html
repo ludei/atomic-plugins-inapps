@@ -128,11 +128,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad05cb3191616647bb93ee52fa687ab9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consumes a consumable product already purchased.  <a href="#ad05cb3191616647bb93ee52fa687ab9c">More...</a><br /></td></tr>
 <tr class="separator:ad05cb3191616647bb93ee52fa687ab9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#afa2c3f8acaf088790e27e4e9e9719cc1">setValidationHandler</a> (<a class="el" href="a00012.html">ValidationHandler</a> handler)</td></tr>
-<tr class="memdesc:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the given handler as validation handler to validate the purchasing process (unamaged mode).  <a href="#afa2c3f8acaf088790e27e4e9e9719cc1">More...</a><br /></td></tr>
+<tr class="memdesc:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the custom validation handler to validate the purchasing process.  <a href="#afa2c3f8acaf088790e27e4e9e9719cc1">More...</a><br /></td></tr>
 <tr class="separator:afa2c3f8acaf088790e27e4e9e9719cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca3bf1979f9c09b651c8a28fa794f2bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aca3bf1979f9c09b651c8a28fa794f2bd">setLudeiServerValidationHandler</a> ()</td></tr>
-<tr class="memdesc:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets Ludei's validation handler as the validation handler to validate the purchasing proccess (managed mode). <br /></td></tr>
+<tr class="memitem:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aca3bf1979f9c09b651c8a28fa794f2bd">setLudeiServerValidationHandler</a> ()</td></tr>
+<tr class="memdesc:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Ludei's server to validate purchases.  <a href="#aca3bf1979f9c09b651c8a28fa794f2bd">More...</a><br /></td></tr>
 <tr class="separator:aca3bf1979f9c09b651c8a28fa794f2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4be5f7cb35867996990abb45b0016f"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#adc4be5f7cb35867996990abb45b0016f">onActivityResult</a> (int requestCode, int resultCode, Intent data)</td></tr>
 <tr class="memdesc:adc4be5f7cb35867996990abb45b0016f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call it when you receive onActivityResult method in your activity.  <a href="#adc4be5f7cb35867996990abb45b0016f">More...</a><br /></td></tr>
@@ -474,6 +473,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a000
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="aca3bf1979f9c09b651c8a28fa794f2bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.ludei.inapps.InAppService.setLudeiServerValidationHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>To enable validatioon using Ludei's server you first need to create an account in Ludei's Cloud server and create a project with you bundleId. </p>
 
 </div>
 </div>

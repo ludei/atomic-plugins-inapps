@@ -4,7 +4,7 @@
     <p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
     <br/> <p>You can contribute and help to create more awesome plugins. </p>
     <h2>Atomic Plugins for InApps</h2>
-    <p>This <a href="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
+    <p>This <a src="https://github.com/ludei/atomic-plugins-inapps">repository</a> contains an in-app purchase API designed using the Atomic Plugins paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we plan to add more in the future.</p>
     <p>Currently there are 3 in-app purchase providers implemented but new ones can be easily added: </p>
     <ul>
     <li>Apple AppStore (iOS/Mac).</li>
@@ -22,16 +22,19 @@
     <p>Include the following JavaScript files in your html project:</p>
     <ul>
     <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
-    <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon.js">cocoon.js</a></li>
+    <li><a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/src/cordova/js/external">cocoon.js</a></li>
     </ul>
     <h3>Documentation</h3>
     <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
     Select the specific namespace below to open the relevant documentation section:</p>
     <ul>
-    <li><a href="Cocoon.html">Cocoon</a></li>
+    <li><a href="http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.html">Cocoon</a></li>
     <li><a href="Cocoon.InApp.html">InApp</a></li>
     </ul>
-    <p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
+    <h3>API Reference</h3>
+    <p>For a complete project that tests all the features provided in the API run the following command:</p>
+    <ul><code>gulp create-cordova</code></ul>
+    <br/><p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
     just drop us a line at our forum and we will do our best to help you out.</p>
     <h3>Tools</h3>
     <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
@@ -40,7 +43,6 @@
     <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a>
     * @version 1.0
     */
-
 
     /**
      * Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purchase API. 
@@ -449,7 +451,9 @@
         };
 
         /**
-         * Used Ludei's Server to validate purchases
+         *
+         * Use Ludei's server to validate purchases.
+         * To enable validation using Ludei's server you first need to create an account in Ludei's Cloud server and create a project with you bundleId.
          * @memberof Cocoon.InApp
          * @function setLudeiServerValidationHandler
          * @example

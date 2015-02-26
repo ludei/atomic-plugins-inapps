@@ -106,14 +106,15 @@ public interface InAppService {
     void consume(String productId, int quantity, ConsumeCallback callback);
 
     /**
-     * Sets the given handler as validation handler to validate the purchasing process (unamaged mode).
+     * Sets the custom validation handler to validate the purchasing process.
      *
      * @param handler The validation handler
      */
     void setValidationHandler(ValidationHandler handler);
 
     /**
-     * Sets Ludei's validation handler as the validation handler to validate the purchasing proccess (managed mode).
+     * Use Ludei's server to validate purchases.
+     * To enable validatioon using Ludei's server you first need to create an account in Ludei's Cloud server and create a project with you bundleId.
      */
     void setLudeiServerValidationHandler();
 
