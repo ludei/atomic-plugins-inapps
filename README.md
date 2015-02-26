@@ -275,13 +275,13 @@ InAppService class provides a multiplatform, easy to use and secure in-app purch
 
 ###Setup your project
 
-You can download prebuilt headers and static libraries from [Releases page](http://ludei.github.io/atomic-plugins-inapps/dist/doc/cpp/html/annotated.html)
+You can download prebuilt headers and static libraries from [Releases page](https://github.com/ludei/atomic-plugins-inapps/releases)
 
 These static libraries provide the bindings between C++ and the native platform (iOS, Android, WP, etc). You might need to add some platform dependent libraries to your project (some jar files or gradle dependecies for example). See [`InAppTest`](test/cpp) for an already setup C++ multiplatform project.
 
 ####Special setup required for Android
 
-There isn't a portable and realiable way to get the current Activity and life cycle events on Android and we don't want to depend on specific game engine utility APIs. C++ and Java bridge is implemented using the SafeJNI utility. Atomic Plugins take advantage of this class and use it also as a generic Activity and Life Cycle Event notification provider. See the following code to set up the activity for atomic plugins and to notify Android life cycle events.
+There isn't a portable and realiable way to get the current Activity and life cycle events on Android and we don't want to depend on specific game engine utility APIs. C++ and Java bridge is implemented using the [SafeJNI](https://github.com/MortimerGoro/SafeJNI) utility. Atomic Plugins take advantage of this class and use it also as a generic Activity and Life Cycle Event notification provider. See the following code to set up the activity for atomic plugins and to notify Android life cycle events.
 
 ```java
 @Override
