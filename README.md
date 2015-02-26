@@ -1,6 +1,6 @@
 #Atomic Plugins for In-App Purchases
 
-This repo contains In-App purchase APIs designed using the [Atomic Plugins](#about-atomic-plugins) paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache, etc. The API is already available in many languagues and we have the plan to add more in the future:
+This repo contains In-App purchase APIs designed using the [Atomic Plugins](#about-atomic-plugins) paradigm. You can integrate IAPs in your app and take advantage of all the features provided: elegant API, local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local product cache and more. The API is already available in many languagues and we plan to add more in the future:
 
   * [Objective-C API for pure iOS/Mac apps](#ios-api)
   * [Java API for pure Android apps](#android-api)
@@ -54,7 +54,7 @@ See [`InAppTest`](test/ios)  for a complete project that tests all the features 
 
 ###Introduction 
 
-LDInAppService class provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Completed purchases are secured using Apple's keychain services and are remembered even if the user deletes the app.
+LDInAppService class provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local product cache. Completed purchases are secured using Apple's keychain services and are remembered even if the user deletes the app.
 
 ###Setup your project
 
@@ -104,7 +104,7 @@ See [`InAppTest`](test/android) for a complete project that tests all the featur
 
 ###Introduction 
 
-InAppService interface provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Single API for multiple IAP providers.
+InAppService interface provides an easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local product cache. Single API for multiple IAP providers.
 
 ## Setup your project
 
@@ -194,7 +194,7 @@ For a complete project that tests all the features provided in the API run the f
 
 ###Introduction 
 
-Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Single JavaScript API for multiple IAP providers.
+Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local product cache. Single JavaScript API for multiple IAP providers.
 
 ###Setup your project
 
@@ -271,17 +271,17 @@ See [`InAppTest`](test/cpp) for a complete project (cocos2dx game) that integrat
 
 ###Introduction 
 
-InAppService class provides a multiplatform, easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local products cache. Single C++ API for multiple IAP providers.
+InAppService class provides a multiplatform, easy to use and secure in-app purchase API. Built-in support for local and server-side receipt validation, consumable and non-consumable purchase tracking and local product cache. Single C++ API for multiple IAP providers.
 
 ###Setup your project
 
 You can download prebuilt headers and static libraries from [Releases page](http://ludei.github.io/atomic-plugins-inapps/dist/doc/cpp/html/annotated.html)
 
-These static libraries provide the bindings between C++ and the native platform (iOS, Android, WP, etc). You might need to add some platform dependant libraries in your project (some jar files or gradle dependecies for example). See [`InAppTest`](test/cpp) for an already setup C++ multiplatform project.
+These static libraries provide the bindings between C++ and the native platform (iOS, Android, WP, etc). You might need to add some platform dependent libraries to your project (some jar files or gradle dependecies for example). See [`InAppTest`](test/cpp) for an already setup C++ multiplatform project.
 
 ####Special setup required for Android
 
-There isn't a portable and realiable way to get the current Activity and life cycle events on Android and we don't want to depend on a specific game engine utility APIs. C++ and Java bridge is implemmented using the SafeJNI utility. Atomic Plugins take advantage of this class and use it also as a generic Activity and Life Cycle Event notification provider. See the following code to set up the activity for atomic plugins and to notify Android life cycle events.
+There isn't a portable and realiable way to get the current Activity and life cycle events on Android and we don't want to depend on specific game engine utility APIs. C++ and Java bridge is implemented using the SafeJNI utility. Atomic Plugins take advantage of this class and use it also as a generic Activity and Life Cycle Event notification provider. See the following code to set up the activity for atomic plugins and to notify Android life cycle events.
 
 ```java
 @Override
@@ -319,7 +319,7 @@ public Cocos2dxGLSurfaceView onCreateView() {
 ```cpp
 
 //Easy to use static method to instantiate a new service
-//You can pass a specific InAppProvider if you have many providers linked in your app and you want to choose one of them in runtime
+//You can pass a specific InAppProvider if you have many providers linked in your app and you want to choose one of them at runtime
 InAppService * service = InAppService::create();
 
 service->addPurchaseObserver(observer); //optional purchase observer;
