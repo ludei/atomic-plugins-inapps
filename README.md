@@ -100,7 +100,14 @@ service.products; //local cached products
 
 See [API Documentation](http://ludei.github.io/atomic-plugins-inapps/dist/doc/android/html/annotated.html)
 
-See [`InAppTest`](test/android) for a complete project that tests all the features provided in the API.
+See [`InAppTest`](test/android) for a complete project that tests all the features provided in the API. In order to test Android In-Apps select the googlePlayRelelease or amazonRelease built variant in Android Studio. You must set your custom productIds in [`MainActivity.java`](test/android/InAppTest/testapp/src/main/java/com/ludei/inapptest/MainActivity.java) and set your bundleId and versionCode in the [`build.gradle`](test/android/InAppTest/testapp/build.gradle)
+
+You also have to configure your release signingConfig. Add these properties to your global gradle.properties file
+
+    STORE_FILE=/Users/user/.android/company.keystore
+    STORE_PASSWORD=xxxxx
+    KEY_ALIAS=xxxxxxx
+    KEY_PASSWORD=xxxxx
 
 ###Introduction 
 
@@ -191,6 +198,8 @@ See [API Documentation](http://ludei.github.io/atomic-plugins-inapps/dist/doc/js
 For a complete project that tests all the features provided in the API run the following command:
 
     gulp create-cordova
+
+A cordova project is created in test/cordova/InAppTest
 
 ###Introduction 
 
