@@ -322,6 +322,16 @@ public Cocos2dxGLSurfaceView onCreateView() {
     return surfaceView;
 }
 ```
+#####Signing a build for release
+
+Set your bundleId and versionCode in the [`build.gradle`](test/cpp/proj.android/app/build.gradle)
+
+You also have to configure your release signingConfig. Add these properties to your global gradle.properties file
+
+    STORE_FILE=/Users/user/.android/company.keystore
+    STORE_PASSWORD=xxxxx
+    KEY_ALIAS=xxxxxxx
+    KEY_PASSWORD=xxxxx
 
 ###Example
 
