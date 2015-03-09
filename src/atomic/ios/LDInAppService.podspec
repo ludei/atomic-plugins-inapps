@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/ludei/atomic-plugins-inapps'
   s.summary  = 'LDInAppService class provides an easy to use and secure In-App Purchase API'
   s.license  = 'MPL 2.0'
-  s.source   = { :git => 'https://github.com/ludei/atomic-plugins-inapps.git', :tag => '1.0.1' }
+  s.source   = { :git => 'https://github.com/ludei/atomic-plugins-inapps.git', :tag => '1.0.2' }
   s.source_files = 'src/atomic/ios/appstore'
   s.platform = :ios
   s.ios.deployment_target = '5.0'
