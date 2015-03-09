@@ -80,7 +80,8 @@
         error = MAKE_ERROR(0, msg);
     }
     _completion(response.products, error);
-    CFRelease((__bridge CFTypeRef)(self));
+    request.delegate = nil;
+    CFAutorelease((__bridge CFTypeRef)(self));
 }
 
 @end
@@ -197,7 +198,7 @@
             completion(products, error);
         }
     };
-    CFRetain((__bridge CFTypeRef)(delegate));
+    //CFRetain((__bridge CFTypeRef)(delegate));
     request.delegate = delegate;
     [request start];
 }

@@ -102,7 +102,6 @@
     Cocoon.define("Cocoon.InApp", function(extension) {
         "use strict";
 
-        extension.nativeAvailable = !!Cocoon.nativeAvailable;
         extension.serviceName = "InAppService";
         extension.signal = new Cocoon.Signal();
         extension._canPurchase = true;

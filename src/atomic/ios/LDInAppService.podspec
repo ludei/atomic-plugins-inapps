@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'LDInAppService'
-  s.version  = '1.0.1'
+  s.version  = '1.0.2'
   s.author   = { 'Imanol Fernandez' => 'imanolf@ludei.com' }
   s.homepage = 'https://github.com/ludei/atomic-plugins-inapps'
   s.summary  = 'LDInAppService class provides an easy to use and secure In-App Purchase API'
