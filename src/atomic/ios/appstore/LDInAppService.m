@@ -81,7 +81,11 @@
     }
     _completion(response.products, error);
     request.delegate = nil;
-    CFAutorelease((__bridge CFTypeRef)(self));
+    LDInAppFetchDelegate * this = self;
+    //simulate CFAutoRelease for iOS 6
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        CFRelease((__bridge CFTypeRef)(this));
+    });
 }
 
 @end
@@ -198,7 +202,7 @@
             completion(products, error);
         }
     };
-    //CFRetain((__bridge CFTypeRef)(delegate));
+    CFRetain((__bridge CFTypeRef)(delegate));
     request.delegate = delegate;
     [request start];
 }
