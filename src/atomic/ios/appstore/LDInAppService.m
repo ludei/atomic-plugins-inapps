@@ -70,34 +70,32 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-  NSError * error = nil;
-  if (response.invalidProductIdentifiers.count > 0) {
-    NSString * msg = @"Invalid products: ";
-    for (NSString * pid in response.invalidProductIdentifiers) {
-      msg = [msg stringByAppendingString:pid];
-      msg = [msg stringByAppendingString:@","];
+    NSError * error = nil;
+    if (response.invalidProductIdentifiers.count > 0) {
+        NSString * msg = @"Invalid products: ";
+	for (NSString * pid in response.invalidProductIdentifiers) {
+	    msg = [msg stringByAppendingString:pid];
+	    msg = [msg stringByAppendingString:@","];
+	}
+	error = MAKE_ERROR(0, msg);
     }
-    error = MAKE_ERROR(0, msg);
-  }
-  _completion(response.products, error);
-  [self dispose:request];
+    _completion(response.products, error);
+    [self dispose:request];
 }
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
-  _completion(nil, error);
-  [self dispose:request];
+    _completion(nil, error);
+    [self dispose:request];
 }
 
 - (void)dispose:(SKRequest*)request {
-  request.delegate = nil;
-  LDInAppFetchDelegate * this = self;
-  //simulate CFAutoRelease for iOS 6
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-      CFRelease((__bridge CFTypeRef)(this));
-    });
+      request.delegate = nil;
+      LDInAppFetchDelegate * this = self;
+      //simulate CFAutoRelease for iOS 6
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+	  CFRelease((__bridge CFTypeRef)(this));
+      });
 }
-
-@end
 
 @end
 
