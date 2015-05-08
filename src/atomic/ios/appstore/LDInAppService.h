@@ -27,6 +27,8 @@
  */
 @property (nonatomic, strong) NSString * localizedPrice;
 
+@property (nonatomic, strong) NSString * currency;
+
 -(NSDictionary *) toDictionary;
 +(instancetype) fromDictionary:(NSDictionary *) dic;
 
