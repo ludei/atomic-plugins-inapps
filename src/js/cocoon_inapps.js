@@ -1,3 +1,10 @@
+(function(){
+
+    var Cocoon = window.Cocoon;
+    if (!Cocoon && window.cordova && typeof require !== 'undefined') {
+        Cocoon = cordova.require('com.ludei.cocoon.common.Cocoon');
+    }
+
     /**
     * @fileOverview
     <h2>About Atomic Plugins</h2>
@@ -180,7 +187,7 @@
          */
         extension.initialize = function(params, callback) {
 
-            Cocoon.callNative(this.serviceName, "setListener", [], function(data) {
+            Cocoon.exec(this.serviceName, "setListener", [], function(data) {
 
                 var event = data[0];
                 if (event === "start") {
@@ -197,7 +204,7 @@
 
             });
 
-            Cocoon.callNative(this.serviceName, "initialize", [params], function(data) {
+            Cocoon.exec(this.serviceName, "initialize", [params], function(data) {
                 extension._canPurchase = data.canPurchase;
                 extension._products = data.products;
                 syncStock(extension._products);
@@ -251,7 +258,7 @@
          */
         extension.fetchProducts = function(productIds, callback) {
             callback = callback || function() {};
-            return Cocoon.callNative(this.serviceName, "fetchProducts", [productIds], function(products) {
+            return Cocoon.exec(this.serviceName, "fetchProducts", [productIds], function(products) {
                 for (var i = 0; i < products.length; ++i) {
                     addProduct(products[i]);
                 }
@@ -339,7 +346,7 @@
          */
         extension.restorePurchases = function(callback) {
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "restorePurchases", [], function() {
+            Cocoon.exec(this.serviceName, "restorePurchases", [], function() {
                 callback();
             }, function(error) {
                 callback(error);
@@ -369,7 +376,7 @@
                 quantity = 1;
             }
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "purchase", [productId, quantity], function() {
+            Cocoon.exec(this.serviceName, "purchase", [productId, quantity], function() {
                 callback();
             }, function(error) {
                 callback(error);
@@ -401,7 +408,7 @@
                 quantity = 1;
             }
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "consume", [productId, quantity], function(consumed) {
+            Cocoon.exec(this.serviceName, "consume", [productId, quantity], function(consumed) {
                 addStock(productId, -consumed);
                 callback(consumed, null);
             }, function(error) {
@@ -423,7 +430,7 @@
          * Cocoon.InApp.finishPurchase(product.TransactionId);
          */
         extension.finishPurchase = function(transactionId) {
-            Cocoon.callNative(this.serviceName, "finishPurchase", [transactionId]);
+            Cocoon.exec(this.serviceName, "finishPurchase", [transactionId]);
         };
 
         /**
@@ -440,11 +447,11 @@
          */
         extension.setValidationHandler = function(validationHandler) {
             var noValidation = !validationHandler;
-            Cocoon.callNative(this.serviceName, "setValidationHandler", [noValidation], function(data) {
+            Cocoon.exec(this.serviceName, "setValidationHandler", [noValidation], function(data) {
 
                 var completionId = data[2];
                 validationHandler(data[0], data[1], function(validationResult) {
-                    Cocoon.callNative(extension.serviceName, "validationCompletion", [completionId, !!validationResult]);
+                    Cocoon.exec(extension.serviceName, "validationCompletion", [completionId, !!validationResult]);
                 });
             });
         };
@@ -459,7 +466,7 @@
          * Cocoon.InApp.setLudeiServerValidationHandler();
          */
         extension.setLudeiServerValidationHandler = function() {
-            Cocoon.callNative(this.serviceName, "setLudeiServerValidationHandler", []);
+            Cocoon.exec(this.serviceName, "setLudeiServerValidationHandler", []);
         };
 
         /**
@@ -522,3 +529,4 @@
 
         return extension;
     });
+})();

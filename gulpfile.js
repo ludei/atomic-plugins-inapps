@@ -6,6 +6,7 @@ var shell = require('gulp-shell');
 var del = require('del');
 var cordova = require('cordova-lib').cordova.raw;
 var jsdoc = require('gulp-jsdoc');
+var uglify = require('gulp-uglify');
 
 gulp.task('clean', function(finish){ 
     del(['**/build', '**/obj', 'test/cordova/InAppTest'], function (err, deletedFiles) {
@@ -47,18 +48,14 @@ gulp.task('build-ios', shell.task([
 ]));
 
 gulp.task('build-js', function () {
-    return gulp.src('src/cordova/js/*.js')
-    		.pipe(jshint())
-    		.pipe(jshint.reporter());
+    return gulp.src('src/js/cocoon_inapps.js')
+            .pipe(jshint())
+            .pipe(jshint.reporter())
+            .pipe(uglify())
+            .pipe(gulp.dest('src/cordova/common/www'));
 });
 
-gulp.task('create-cordova', ['deps-cordova', 'build-js'], function(finish) {
-
-    //update final javascript files
-    gulp.src('src/cordova/js/*.js')
-        .pipe(gulp.dest('test/cordova/www/js'));
-    gulp.src('src/cordova/js/external/*.js')
-        .pipe(gulp.dest('test/cordova/www/js'));    
+gulp.task('create-cordova', ['deps-cordova', 'build-js'], function(finish) {    
 
 	var name = "InAppTest";
 	var buildDir = path.join('test','cordova', name);
@@ -78,6 +75,7 @@ gulp.task('create-cordova', ['deps-cordova', 'build-js'], function(finish) {
     	.then(function() {
 
             var plugins = [
+                    "src/cordova/common",
                     "src/cordova/android/common",
                     "src/cordova/android/googleplay",
                     "src/cordova/ios/appstore"
@@ -133,7 +131,7 @@ gulp.task('doc-js', ["build-js"], function() {
     var templates = config.templates;
     templates.path = 'doc_template/js';
 
-    return gulp.src("src/cordova/js/*.js")
+    return gulp.src("src/js/*.js")
       .pipe(jsdoc.parser(infos))
       .pipe(jsdoc.generator('dist/doc/js', templates));
 

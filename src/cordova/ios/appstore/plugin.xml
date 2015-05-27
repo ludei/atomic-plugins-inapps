@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.ios.appstore" version="1.0.4">
+        id="com.ludei.inapps.ios.appstore" version="1.0.5">
     <name>InAppsAppStore</name>
     <description>iOS In-App Purchase API</description>
     <license>MPL 2.0</license>
@@ -20,4 +20,6 @@
 	    	</feature>
     	</config-file>
     </platform>
+
+    <dependency id="com.ludei.inapps.common" />
 </plugin>
