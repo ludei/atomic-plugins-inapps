@@ -213,9 +213,8 @@ Releases are deployed to Cordova Plugin Registry. You only have to install the d
     cordova plugin add com.ludei.inapps.android.googleplay;
     cordova plugin add con.ludei.inapps.android.amazon;
 
-Include the following JavaScript files in your html project:
+The following JavaScript file is included automatically:
 
-[`cocoon.js`](src/cordova/js/external/cocoon.js)
 [`cocoon_inapps.js`](src/cordova/js/cocoon_inapps.js)
 
 ###Example
