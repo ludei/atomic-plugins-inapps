@@ -86,11 +86,18 @@
 					
 
 
-		<h1 class="page-title">Source: /Users/LibelulaV/Documents/ludei/atomic-plugins-inapps/src/cordova/js/cocoon_inapps.js</h1>
+		<h1 class="page-title">Source: /Users/LibelulaV/Documents/ludei/atomic-plugins-inapps/src/js/cocoon_inapps.js</h1>
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">    /**
+            <pre class="sunlight-highlight-javascript linenums">(function(){
+
+    var Cocoon = window.Cocoon;
+    if (!Cocoon &amp;&amp; window.cordova &amp;&amp; typeof require !== 'undefined') {
+        Cocoon = cordova.require('com.ludei.cocoon.common.Cocoon');
+    }
+
+    /**
     * @fileOverview
     &lt;h2>About Atomic Plugins&lt;/h2>
     &lt;p>Atomic Plugins provide an elegant and minimalist API and are designed with portability in mind from the beginning. Framework dependencies are avoided by design so the plugins can run on any platform and can be integrated with any app framework or game engine.
@@ -105,16 +112,16 @@
     &lt;/ul>
     &lt;h3>Setup your project&lt;/h3>
     &lt;p>Releases are deployed to Cordova Plugin Registry. 
-    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon Cloud Server.&lt;/p>
+    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon.io Cloud Server.&lt;/p>
     &lt;ul>
     &lt;code>cordova plugin add com.ludei.inapps.ios.appstore;&lt;/code>&lt;br/>
     &lt;code>cordova plugin add com.ludei.inapps.android.googleplay;&lt;/code>&lt;br/>
     &lt;code>cordova plugin add con.ludei.inapps.android.amazon;&lt;/code>&lt;br/>
     &lt;/ul>
-    &lt;p>Include the following JavaScript files in your html project:&lt;/p>
+    &lt;p>The following JavaScript files will be included in your html project by default during installation:&lt;/p>
     &lt;ul>
     &lt;li>&lt;a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/src/cordova/js/external">cocoon.js&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="https://github.com/ludei/cocoon-common/blob/master/src/js/cocoon.js">cocoon.js&lt;/a>&lt;/li>
     &lt;/ul>
     &lt;h3>Documentation&lt;/h3>
     &lt;p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
@@ -130,9 +137,8 @@
     just drop us a line at our forum and we will do our best to help you out.&lt;/p>
     &lt;h3>Tools&lt;/h3>
     &lt;a href="http://support.ludei.com/hc/communities/public/topics">&lt;img src="img/cocoon-tools-1.png" />&lt;/a>
-    &lt;a href="http://support.ludei.com/hc">&lt;img src="img/cocoon-tools-2.png" />&lt;/a>
-    &lt;a href="https://cloud.ludei.com/">&lt;img src="img/cocoon-tools-3.png" />&lt;/a>
-    &lt;a href="https://www.ludei.com/cocoonjs/how-to-use/">&lt;img src="img/cocoon-tools-4.png" />&lt;/a>
+    &lt;a href="https://cocoon.io/doc">&lt;img src="img/cocoon-tools-2.png" />&lt;/a>
+    &lt;a href="http://cocoon.io/">&lt;img src="img/cocoon-tools-3.png" />&lt;/a>
     * @version 1.0
     */
 
@@ -194,7 +200,6 @@
     Cocoon.define("Cocoon.InApp", function(extension) {
         "use strict";
 
-        extension.nativeAvailable = !!Cocoon.nativeAvailable;
         extension.serviceName = "InAppService";
         extension.signal = new Cocoon.Signal();
         extension._canPurchase = true;
@@ -273,7 +278,7 @@
          */
         extension.initialize = function(params, callback) {
 
-            Cocoon.callNative(this.serviceName, "setListener", [], function(data) {
+            Cocoon.exec(this.serviceName, "setListener", [], function(data) {
 
                 var event = data[0];
                 if (event === "start") {
@@ -290,7 +295,7 @@
 
             });
 
-            Cocoon.callNative(this.serviceName, "initialize", [params], function(data) {
+            Cocoon.exec(this.serviceName, "initialize", [params], function(data) {
                 extension._canPurchase = data.canPurchase;
                 extension._products = data.products;
                 syncStock(extension._products);
@@ -344,7 +349,7 @@
          */
         extension.fetchProducts = function(productIds, callback) {
             callback = callback || function() {};
-            return Cocoon.callNative(this.serviceName, "fetchProducts", [productIds], function(products) {
+            return Cocoon.exec(this.serviceName, "fetchProducts", [productIds], function(products) {
                 for (var i = 0; i &lt; products.length; ++i) {
                     addProduct(products[i]);
                 }
@@ -432,7 +437,7 @@
          */
         extension.restorePurchases = function(callback) {
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "restorePurchases", [], function() {
+            Cocoon.exec(this.serviceName, "restorePurchases", [], function() {
                 callback();
             }, function(error) {
                 callback(error);
@@ -462,7 +467,7 @@
                 quantity = 1;
             }
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "purchase", [productId, quantity], function() {
+            Cocoon.exec(this.serviceName, "purchase", [productId, quantity], function() {
                 callback();
             }, function(error) {
                 callback(error);
@@ -494,7 +499,7 @@
                 quantity = 1;
             }
             callback = callback || function() {};
-            Cocoon.callNative(this.serviceName, "consume", [productId, quantity], function(consumed) {
+            Cocoon.exec(this.serviceName, "consume", [productId, quantity], function(consumed) {
                 addStock(productId, -consumed);
                 callback(consumed, null);
             }, function(error) {
@@ -516,7 +521,7 @@
          * Cocoon.InApp.finishPurchase(product.TransactionId);
          */
         extension.finishPurchase = function(transactionId) {
-            Cocoon.callNative(this.serviceName, "finishPurchase", [transactionId]);
+            Cocoon.exec(this.serviceName, "finishPurchase", [transactionId]);
         };
 
         /**
@@ -533,11 +538,11 @@
          */
         extension.setValidationHandler = function(validationHandler) {
             var noValidation = !validationHandler;
-            Cocoon.callNative(this.serviceName, "setValidationHandler", [noValidation], function(data) {
+            Cocoon.exec(this.serviceName, "setValidationHandler", [noValidation], function(data) {
 
                 var completionId = data[2];
                 validationHandler(data[0], data[1], function(validationResult) {
-                    Cocoon.callNative(extension.serviceName, "validationCompletion", [completionId, !!validationResult]);
+                    Cocoon.exec(extension.serviceName, "validationCompletion", [completionId, !!validationResult]);
                 });
             });
         };
@@ -552,7 +557,7 @@
          * Cocoon.InApp.setLudeiServerValidationHandler();
          */
         extension.setLudeiServerValidationHandler = function() {
-            Cocoon.callNative(this.serviceName, "setLudeiServerValidationHandler", []);
+            Cocoon.exec(this.serviceName, "setLudeiServerValidationHandler", []);
         };
 
         /**
@@ -615,6 +620,7 @@
 
         return extension;
     });
+})();
 </pre>
         </article>
     </section>

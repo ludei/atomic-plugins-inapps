@@ -20,16 +20,16 @@
     </ul>
     <h3>Setup your project</h3>
     <p>Releases are deployed to Cordova Plugin Registry. 
-    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon Cloud Server.</p>
+    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon.io Cloud Server.</p>
     <ul>
     <code>cordova plugin add com.ludei.inapps.ios.appstore;</code><br/>
     <code>cordova plugin add com.ludei.inapps.android.googleplay;</code><br/>
     <code>cordova plugin add con.ludei.inapps.android.amazon;</code><br/>
     </ul>
-    <p>Include the following JavaScript files in your html project:</p>
+    <p>The following JavaScript files will be included in your html project by default during installation:</p>
     <ul>
     <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
-    <li><a href="https://github.com/ludei/atomic-plugins-inapps/tree/master/src/cordova/js/external">cocoon.js</a></li>
+    <li><a href="https://github.com/ludei/cocoon-common/blob/master/src/js/cocoon.js">cocoon.js</a></li>
     </ul>
     <h3>Documentation</h3>
     <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
@@ -45,9 +45,8 @@
     just drop us a line at our forum and we will do our best to help you out.</p>
     <h3>Tools</h3>
     <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
-    <a href="http://support.ludei.com/hc"><img src="img/cocoon-tools-2.png" /></a>
-    <a href="https://cloud.ludei.com/"><img src="img/cocoon-tools-3.png" /></a>
-    <a href="https://www.ludei.com/cocoonjs/how-to-use/"><img src="img/cocoon-tools-4.png" /></a>
+    <a href="https://cocoon.io/doc"><img src="img/cocoon-tools-2.png" /></a>
+    <a href="http://cocoon.io/"><img src="img/cocoon-tools-3.png" /></a>
     * @version 1.0
     */
 
