@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.android.amazon" version="1.0.3">
+        id="com.ludei.inapps.android.amazon" version="1.0.4">
     <name>InAppsAmazon</name>
     <description>Amazon In-App Purchase implementation</description>
     <license>MPL 2.0</license>

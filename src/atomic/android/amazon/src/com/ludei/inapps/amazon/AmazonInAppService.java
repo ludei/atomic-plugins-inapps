@@ -28,7 +28,7 @@ public class AmazonInAppService extends AbstractInAppService
     private AmazonObserver mAmazonObserver;
     private boolean mSdkAvailable;
     private FetchCallback mFetchCallback;
-    private HashMap<String, PurchaseCallback> mPurchaseCallbacks = new HashMap<>();
+    private HashMap<String, PurchaseCallback> mPurchaseCallbacks = new HashMap<String, PurchaseCallback>();
     private String mAlreadyEntitledRequestId;
 
     public AmazonInAppService(Context ctx) {
@@ -42,7 +42,7 @@ public class AmazonInAppService extends AbstractInAppService
     @Override
     protected void internalFetchProducts(List<String> productIds, FetchCallback callback) {
         mFetchCallback = callback;
-        Set<String> pIds = new HashSet<>(productIds);
+        Set<String> pIds = new HashSet<String>(productIds);
         PurchasingManager.initiateItemDataRequest(pIds);
     }
 
