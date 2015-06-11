@@ -2,7 +2,7 @@ package com.ludei.inapps.cordova;
 
 import com.ludei.inapps.amazon.AmazonInAppService;
 
-public class amazonInAppServicePlugin extends InAppServicePlugin {
+public class AmazonInAppServicePlugin extends InAppServicePlugin {
 	
 	@Override
 	protected void pluginInitialize() {
