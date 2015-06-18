@@ -193,7 +193,7 @@ public void onDestroy()
 
 ###API Reference
 
-See [API Documentation](http://ludei.github.io/atomic-plugins-inapps/dist/doc/js/Cocoon.InApp.html)
+See [API Documentation](http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.InApp.html)
 
 For a complete project that tests all the features provided in the API run the following command:
 
