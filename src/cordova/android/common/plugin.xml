@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.android.common" version="1.0.4">
+        id="com.ludei.inapps.android.common" version="1.0.5">
     <name>InAppsCommon</name>
     <description>Cross platform In-App Purchase API for different stores. Full support for banners and interstitials. Built-in local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache and more</description>
     <license>MPL 2.0</license>
     <keywords>cordova,InApps,AppStore,Store,InApp Purchase,In,App,Payment,Billing,IAP</keywords>
+    <repo>https://github.com/ludei/atomic-plugins-inapps</repo>    
     <platform name="android">
         <source-file src="src/InAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />
         <source-file src="src/deps/com/ludei/inapps/InAppService.java" target-dir="src/com/ludei/inapps" />

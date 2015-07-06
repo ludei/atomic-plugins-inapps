@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.common" version="1.0.2">
+        id="com.ludei.inapps.common" version="1.0.3">
     <name>CocoonInAppsCommon</name>
     <description>Cocoon InApps API</description>
     <license>MPL 2.0</license>
     <keywords>cordova,inapps,IAP,purchase,billing,cocoon,atomic,plugins</keywords>
-
+    <repo>https://github.com/ludei/atomic-plugins-inapps</repo>    
     <js-module src="www/cocoon_inapps.js" name="InApp">
         <runs/>
     </js-module>
