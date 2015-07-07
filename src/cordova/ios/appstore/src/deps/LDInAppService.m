@@ -18,13 +18,14 @@
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [currencyFormatter setLocale:sk.priceLocale];
     result.localizedPrice = [currencyFormatter stringFromNumber:sk.price];
+    result.currency = [sk.priceLocale objectForKey:NSLocaleCurrencyCode];
     return result;
 }
 
 -(NSDictionary *) toDictionary
 {
     return @{@"productId": _productId ?: @"", @"title":_localizedTitle ?: @"", @"description": _localizedDescription ?: @"",
-             @"price:" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @""};
+             @"price:" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @"", @"currency" : _currency};
 }
 
 +(instancetype) fromDictionary:(NSDictionary *) dic
@@ -35,6 +36,7 @@
     result.localizedDescription = [dic objectForKey:@"description"];
     result.localizedPrice = [dic objectForKey:@"localizedPrice"];
     result.price = [[dic objectForKey:@"price"] doubleValue];
+    result.currency = [dic objectForKey:@"currency"];
     return result;
 }
 
@@ -73,19 +75,28 @@
     NSError * error = nil;
     if (response.invalidProductIdentifiers.count > 0) {
         NSString * msg = @"Invalid products: ";
-        for (NSString * pid in response.invalidProductIdentifiers) {
-            msg = [msg stringByAppendingString:pid];
-            msg = [msg stringByAppendingString:@","];
-        }
-        error = MAKE_ERROR(0, msg);
+	for (NSString * pid in response.invalidProductIdentifiers) {
+	    msg = [msg stringByAppendingString:pid];
+	    msg = [msg stringByAppendingString:@","];
+	}
+	error = MAKE_ERROR(0, msg);
     }
     _completion(response.products, error);
-    request.delegate = nil;
-    LDInAppFetchDelegate * this = self;
-    //simulate CFAutoRelease for iOS 6
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        CFRelease((__bridge CFTypeRef)(this));
-    });
+    [self dispose:request];
+}
+
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
+    _completion(nil, error);
+    [self dispose:request];
+}
+
+- (void)dispose:(SKRequest*)request {
+      request.delegate = nil;
+      LDInAppFetchDelegate * this = self;
+      //simulate CFAutoRelease for iOS 6
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+	  CFRelease((__bridge CFTypeRef)(this));
+      });
 }
 
 @end
