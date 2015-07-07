@@ -1,0 +1,35 @@
+{
+  "name": "cocoon-plugin-inapps-ios-appstore",
+  "version": "1.0.0",
+  "description": "iOS In-App Purchase API",
+  "cordova": {
+    "id": "cocoon-plugin-inapps-ios-appstore",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludei/atomic-plugins-inapps"
+  },
+  "keywords": [
+    "cordova",
+    "InApps",
+    "AppStore",
+    "Store",
+    "InApp Purchase",
+    "In",
+    "App",
+    "Payment",
+    "Billing",
+    "IAP",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "ludei",
+  "license": "MPL 2.0",
+  "bugs": {
+    "url": "https://github.com/ludei/atomic-plugins-inapps/issues"
+  },
+  "homepage": "https://github.com/ludei/atomic-plugins-inapps#readme"
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.inapps.android.common" version="1.0.5">
+        id="cocoon-plugin-inapps-android-common" version="1.0.0">
     <name>InAppsCommon</name>
     <description>Cross platform In-App Purchase API for different stores. Full support for banners and interstitials. Built-in local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache and more</description>
     <license>MPL 2.0</license>
@@ -15,5 +15,5 @@
         <source-file src="src/deps/com/ludei/inapps/LudeiServerValidation.java" target-dir="src/com/ludei/inapps" />
     </platform>
 
-    <dependency id="com.ludei.inapps.common" />
+    <dependency id="cocoon-plugin-inapps-common" />
 </plugin>

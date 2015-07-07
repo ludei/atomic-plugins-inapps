@@ -1,5 +1,5 @@
 {
-  "name": "plugins-inapps",
+  "name": "atomic-plugins-inapps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,8 +13,8 @@
     "type": "git",
     "url": "https://github.com/ludei/atomic-plugins-inapps"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ludei",
+  "license": "MPL 2.0",
   "devDependencies": {
     "cordova-lib": "^4.2.0",
     "del": "^1.1.1",

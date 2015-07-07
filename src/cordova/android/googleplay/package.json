@@ -1,0 +1,37 @@
+{
+  "name": "cocoon-plugin-inapps-android-googleplay",
+  "version": "1.0.0",
+  "description": "Android Google Play In-App Purchase implementation",
+  "cordova": {
+    "id": "cocoon-plugin-inapps-android-googleplay",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludei/atomic-plugins-inapps"
+  },
+  "keywords": [
+    "cordova",
+    "InApps",
+    "AppStore",
+    "Store",
+    "InApp Purchase",
+    "In",
+    "App",
+    "Payment",
+    "Billing",
+    "IAP",
+    "Google",
+    "Play",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "ludei",
+  "license": "MPL 2.0",
+  "bugs": {
+    "url": "https://github.com/ludei/atomic-plugins-inapps/issues"
+  },
+  "homepage": "https://github.com/ludei/atomic-plugins-inapps#readme"
+}

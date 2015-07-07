@@ -209,9 +209,9 @@ Cocoon.InApp class provides a multiplatform, easy to use and secure in-app purch
 
 Releases are deployed to Cordova Plugin Registry. You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Ludei's Cocoon Cloud Server.
 
-    cordova plugin add com.ludei.inapps.ios.appstore;
-    cordova plugin add com.ludei.inapps.android.googleplay;
-    cordova plugin add con.ludei.inapps.android.amazon;
+    cordova plugin add cocoon-plugin-inapps-ios-appstore;
+    cordova plugin add cocoon-plugin-inapps-android-googleplay;
+    cordova plugin add cocoon-plugin-inapps-android-amazon;
 
 The following JavaScript file is included automatically:
 

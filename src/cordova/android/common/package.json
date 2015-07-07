@@ -1,0 +1,35 @@
+{
+  "name": "cocoon-plugin-inapps-android-common",
+  "version": "1.0.0",
+  "description": "Cross platform In-App Purchase API for different stores. Full support for banners and interstitials. Built-in local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache and more",
+  "cordova": {
+    "id": "cocoon-plugin-inapps-android-common",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludei/atomic-plugins-inapps"
+  },
+  "keywords": [
+    "cordova",
+    "InApps",
+    "AppStore",
+    "Store",
+    "InApp Purchase",
+    "In",
+    "App",
+    "Payment",
+    "Billing",
+    "IAP",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "ludei",
+  "license": "MPL 2.0",
+  "bugs": {
+    "url": "https://github.com/ludei/atomic-plugins-inapps/issues"
+  },
+  "homepage": "https://github.com/ludei/atomic-plugins-inapps#readme"
+}
