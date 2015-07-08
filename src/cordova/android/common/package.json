@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-inapps-android-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cross platform In-App Purchase API for different stores. Full support for banners and interstitials. Built-in local and server-side receipt validation, secure consumable and non-consumable purchase tracking, local products cache and more",
   "cordova": {
     "id": "cocoon-plugin-inapps-android-common",

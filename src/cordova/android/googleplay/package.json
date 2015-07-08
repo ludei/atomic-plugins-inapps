@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-inapps-android-googleplay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Android Google Play In-App Purchase implementation",
   "cordova": {
     "id": "cocoon-plugin-inapps-android-googleplay",

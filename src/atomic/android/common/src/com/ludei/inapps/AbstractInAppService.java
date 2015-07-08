@@ -48,6 +48,14 @@ public abstract class AbstractInAppService implements InAppService {
     }
 
     @Override
+    public void init(InitCompletion callback)
+    {
+        if (callback != null) {
+            callback.onInit(null);
+        }
+    }
+
+    @Override
     public void addPurchaseObserver(InAppPurchaseObserver observer) {
         if (!mObservers.contains(observer)) {
             mObservers.add(observer);

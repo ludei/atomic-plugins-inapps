@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-inapps-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cocoon InApps API",
   "cordova": {
     "id": "cocoon-plugin-inapps-common",

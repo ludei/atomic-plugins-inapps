@@ -13,6 +13,13 @@ import java.util.List;
 public interface InAppService {
 
     /**
+     * Initialize the service and wait for completion
+     * Some IAP services like Google Play need to initialize external services
+     * @param callback Informs when the service is fully initialized and ready to use
+     */
+    void init(InitCompletion callback);
+
+    /**
      * Adds a purchase observer.
      *
      * @param observer The purchase observer to add.
@@ -213,5 +220,12 @@ public interface InAppService {
      */
     public interface ValidationCompletion {
         void finishValidation(Error error);
+    }
+
+    /**
+     * Informs when the service is fully initialized and ready to use
+     */
+    public interface InitCompletion {
+        void onInit(Error error);
     }
 }

@@ -208,7 +208,7 @@
                 extension._products = data.products;
                 syncStock(extension._products);
                 if (callback) {
-                    callback();
+                    callback(data.error);
                 }
             });
         };

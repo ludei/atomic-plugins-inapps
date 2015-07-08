@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cocoon-plugin-inapps-common" version="1.0.0">
+        id="cocoon-plugin-inapps-common" version="1.0.1">
     <name>CocoonInAppsCommon</name>
     <description>Cocoon InApps API</description>
     <license>MPL 2.0</license>

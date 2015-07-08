@@ -76,13 +76,30 @@ public class InAppServicePlugin extends CordovaPlugin implements InAppService.In
 		this.listenerCtx = ctx;
 	}
 	
-	public void initialize(CordovaArgs args, CallbackContext ctx) throws JSONException {
+	public void initialize(CordovaArgs args, final CallbackContext ctx) throws JSONException {
 		service.addPurchaseObserver(this);
-		
-		JSONObject data = new JSONObject();
-		data.put("products", this.productsToJSON(service.getProducts()));
-		data.put("canPurchase", service.canPurchase());
-		ctx.sendPluginResult(new PluginResult(Status.OK, data));
+
+		service.init(new InAppService.InitCompletion() {
+			@Override
+			public void onInit(Error error) {
+				JSONObject data = new JSONObject();
+				try {
+					data.put("products", InAppServicePlugin.this.productsToJSON(service.getProducts()));
+					data.put("canPurchase", service.canPurchase());
+					if (error != null) {
+						data.put("error", errorToJSON(error));
+					}
+				}
+				catch (JSONException e) {
+					e.printStackTrace();
+				}
+
+				ctx.sendPluginResult(new PluginResult(Status.OK, data));
+			}
+
+		});
+
+
 	}
 	
 	public void fetchProducts(CordovaArgs args, final CallbackContext ctx) {

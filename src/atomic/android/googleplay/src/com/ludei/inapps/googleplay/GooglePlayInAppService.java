@@ -49,16 +49,25 @@ public class GooglePlayInAppService extends AbstractInAppService
     }
 
     private IInAppBillingService mService;
+    private InitCompletion mServiceOnConnected;
     private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
             mService = null;
+            if (mServiceOnConnected != null) {
+                mServiceOnConnected.onInit(new Error(0, "Service Disconnected"));
+                mServiceOnConnected = null;
+            }
         }
 
         @Override
         public void onServiceConnected(ComponentName name,
                                        IBinder service) {
             mService = IInAppBillingService.Stub.asInterface(service);
+            if (mServiceOnConnected != null) {
+                mServiceOnConnected.onInit(null);
+                mServiceOnConnected = null;
+            }
         }
     };
     private String mPendingIntentProductId;
@@ -72,6 +81,22 @@ public class GooglePlayInAppService extends AbstractInAppService
         Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
         mContext.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+    }
+
+
+    @Override
+    public void init(InitCompletion callback)
+    {
+        if (callback == null) {
+            return;
+        }
+
+        if (mService != null) {
+            callback.onInit(null);
+        }
+        else {
+            mServiceOnConnected = callback;
+        }
     }
 
     @Override
@@ -103,8 +128,11 @@ public class GooglePlayInAppService extends AbstractInAppService
 
     public void internalFetchProducts(final List<String> productIds, final FetchCallback callback)
     {
-        ArrayList<String> skuList = new ArrayList<String>(productIds);
 
+        if (mService == null) {
+            callback.onComplete(null, new Error(0, "Service disconnected"));
+            return;
+        }
 
         runBackgroundTask(new Runnable() {
             @Override
@@ -131,12 +159,10 @@ public class GooglePlayInAppService extends AbstractInAppService
                             for (String productResponse : responseList) {
                                 products.add(JSONObjectToInapp(new JSONObject(productResponse)));
                             }
-                        }
-                        else {
+                        } else {
                             error = new Error(response, Utils.getResponseDesc(response));
                         }
-                    }
-                    catch (Exception ex) {
+                    } catch (Exception ex) {
                         error = new Error(0, ex.toString());
                     }
                 }
@@ -189,6 +215,14 @@ public class GooglePlayInAppService extends AbstractInAppService
 
     @Override
     public void purchase(final String productId, int quantity, final PurchaseCallback callback) {
+
+        if (mService == null) {
+            if (callback != null) {
+                callback.onComplete(null, new Error(0, "Service disconnected"));
+            }
+            return;
+        }
+
         if (callback != null) {
             mPurchaseCallbacks.put(productId, callback);
         }
@@ -234,6 +268,13 @@ public class GooglePlayInAppService extends AbstractInAppService
     @Override
     public void consume(final String productId, int quantity, final ConsumeCallback callback)
     {
+        if (mService == null) {
+            if (callback != null) {
+                callback.onComplete(0, new Error(0, "Service disconnected"));
+            }
+            return;
+        }
+
         fetchPurchases(productId, 0, new FetchPurchasesCallback() {
             @Override
             public void onCompleted(ArrayList<GPInAppPurchase> purchases, final Error error) {
@@ -417,6 +458,13 @@ public class GooglePlayInAppService extends AbstractInAppService
 
     @Override
     public void restorePurchases(final RestoreCallback callback) {
+        if (mService == null) {
+            if (callback != null) {
+                callback.onComplete(new Error(0, "Service disconnected"));
+            }
+            return;
+        }
+
         this.fetchPurchases(null, 0, new FetchPurchasesCallback() {
             @Override
             public void onCompleted(ArrayList<GPInAppPurchase> purchases, final Error error) {
