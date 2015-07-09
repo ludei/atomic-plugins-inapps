@@ -1,7 +1,7 @@
 (function(){
 
     if (!window.Cocoon && window.cordova && typeof require !== 'undefined') {
-        require('com.ludei.cocoon.common.Cocoon');
+        cordova.require('cocoon-plugin-common.Cocoon');
     }
     var Cocoon = window.Cocoon;
 
