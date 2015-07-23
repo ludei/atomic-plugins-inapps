@@ -3,15 +3,16 @@ package com.ludei.inapps.amazon;
 import android.content.Context;
 import android.content.Intent;
 
-import com.amazon.inapp.purchasing.BasePurchasingObserver;
-import com.amazon.inapp.purchasing.GetUserIdResponse;
-import com.amazon.inapp.purchasing.Item;
-import com.amazon.inapp.purchasing.ItemDataResponse;
-import com.amazon.inapp.purchasing.Offset;
-import com.amazon.inapp.purchasing.PurchaseResponse;
-import com.amazon.inapp.purchasing.PurchaseUpdatesResponse;
-import com.amazon.inapp.purchasing.PurchasingManager;
-import com.amazon.inapp.purchasing.Receipt;
+import com.amazon.device.iap.PurchasingListener;
+import com.amazon.device.iap.PurchasingService;
+
+import com.amazon.device.iap.model.Product;
+import com.amazon.device.iap.model.ProductDataResponse;
+import com.amazon.device.iap.model.PurchaseResponse;
+import com.amazon.device.iap.model.PurchaseUpdatesResponse;
+import com.amazon.device.iap.model.Receipt;
+import com.amazon.device.iap.model.RequestId;
+import com.amazon.device.iap.model.UserDataResponse;
 import com.ludei.inapps.*;
 
 import java.util.ArrayList;
@@ -22,20 +23,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class AmazonInAppService extends AbstractInAppService
+public class AmazonInAppService extends AbstractInAppService implements PurchasingListener
 {
-
-    private AmazonObserver mAmazonObserver;
-    private boolean mSdkAvailable;
     private FetchCallback mFetchCallback;
-    private HashMap<String, PurchaseCallback> mPurchaseCallbacks = new HashMap<String, PurchaseCallback>();
-    private String mAlreadyEntitledRequestId;
+    private HashMap<RequestId, PurchaseCallback> mPurchaseCallbacks = new HashMap<RequestId, PurchaseCallback>();
+    private HashMap<RequestId, String> mProductIds = new HashMap<RequestId, String>();
+    private RequestId mAlreadyPurchasedRequestId;
+    private String mAlreadyPurchasedProductId;
 
     public AmazonInAppService(Context ctx) {
         super(ctx);
 
-        mAmazonObserver = new AmazonObserver(ctx, this);
-        PurchasingManager.registerObserver(mAmazonObserver);
+        PurchasingService.registerListener(ctx, this);
     }
 
 
@@ -43,12 +42,12 @@ public class AmazonInAppService extends AbstractInAppService
     protected void internalFetchProducts(List<String> productIds, FetchCallback callback) {
         mFetchCallback = callback;
         Set<String> pIds = new HashSet<String>(productIds);
-        PurchasingManager.initiateItemDataRequest(pIds);
+        PurchasingService.getProductData(pIds);
     }
 
     @Override
     public boolean canPurchase() {
-        return mSdkAvailable;
+        return true;
     }
 
     @Override
@@ -66,8 +65,9 @@ public class AmazonInAppService extends AbstractInAppService
             }
         });
 
-        String requestId = PurchasingManager.initiatePurchaseRequest(productId);
-        mPurchaseCallbacks.put(requestId, callback);
+        RequestId request = PurchasingService.purchase(productId);
+        mProductIds.put(request, productId);
+        mPurchaseCallbacks.put(request, callback);
     }
 
     @Override
@@ -95,12 +95,12 @@ public class AmazonInAppService extends AbstractInAppService
 
         //local validation or server validation
         String unverifiedData =  "{\"userId\": \"" + userId + "\", \"purchaseToken\": \""
-                + receipt.getPurchaseToken().replace("\n", "") + "\"}";
+                + receipt.getReceiptId().replace("\n", "") + "\"}";
 
 
         final InAppPurchase purchase = new InAppPurchase();
         purchase.productId = receipt.getSku();
-        purchase.transactionId = receipt.getPurchaseToken();
+        purchase.transactionId = receipt.getReceiptId();
         purchase.quantity = 1;
         purchase.purchaseDate = new Date();
 
@@ -113,8 +113,7 @@ public class AmazonInAppService extends AbstractInAppService
                         if (error != null) {
                             //validation failed
                             notifyPurchaseFailed(purchase.productId, error);
-                        }
-                        else {
+                        } else {
                             //validation completed, update stock and save it.
                             mStock.put(purchase.productId, 1);
                             saveCipheredStock();
@@ -130,40 +129,31 @@ public class AmazonInAppService extends AbstractInAppService
 
     }
 
-    //callbacks from AmazonObserver
+    @Override
+    public void onProductDataResponse(ProductDataResponse response) {
 
-    public void onSdkAvailable(boolean isSandbox) {
-        mSdkAvailable = true;
-    }
-
-    public void onItemDataResponse(ItemDataResponse itemDataResponse) {
         final  ArrayList<InAppProduct> products = new ArrayList<InAppProduct>();
         Error error = null;
 
-        switch (itemDataResponse.getItemDataRequestStatus()) {
-            case SUCCESSFUL_WITH_UNAVAILABLE_SKUS:
-                // Skus that you cannot purchase will be here.
+        switch (response.getRequestStatus()) {
             case SUCCESSFUL:
-                Map<String, Item> items = itemDataResponse.getItemData();
+                Map<String, Product> items = response.getProductData();
                 for (String key : items.keySet()) {
-                    Item i = items.get(key);
+                    Product i = items.get(key);
                     InAppProduct product = new InAppProduct();
                     product.productId = i.getSku();
                     product.title = i.getTitle();
                     product.description = i.getDescription();
 
-                    char firstChar = i.getPrice().charAt(0);
-                    boolean firstIsDigit = (firstChar >= '0' && firstChar <= '9');
-                    char lastChar = i.getPrice().charAt(i.getPrice().length()-1);
-                    boolean lastIsDigit = (lastChar >= '0' && lastChar <= '9');
-                    if (firstIsDigit && lastIsDigit) {
-                        product.price = Double.parseDouble(i.getPrice());
-                    } else if (!firstIsDigit) {
-                        product.price = Double.parseDouble(i.getPrice().substring(1));
-                    } else if (!lastIsDigit) {
-                        product.price = Double.parseDouble(i.getPrice().substring(0, i.getPrice().length()-1));
+                    String localizedPrice = i.getPrice();
+                    String price = localizedPrice.replaceAll("[^\\d.]", "");
+                    try {
+                        product.price = Double.parseDouble(price);
                     }
-                    product.localizedPrice = i.getPrice();
+                    catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    product.localizedPrice = localizedPrice;
                     products.add(product);
                 }
 
@@ -171,6 +161,9 @@ public class AmazonInAppService extends AbstractInAppService
 
             case FAILED:
                 error = new Error(0, "Products information could not be retrieved");
+                break;
+            case NOT_SUPPORTED:
+                error = new Error(0, "Products information not supported");
                 break;
         }
 
@@ -185,29 +178,36 @@ public class AmazonInAppService extends AbstractInAppService
 
     }
 
-    public void onGetUserIdResponse(GetUserIdResponse getUserIdResponse) {
+
+    @Override
+    public void onUserDataResponse(UserDataResponse userDataResponse) {
 
     }
 
-    public void onPurchaseResponse(PurchaseResponse purchaseResponse)  {
-        final Receipt receipt = purchaseResponse.getReceipt();
-        final String userId = purchaseResponse.getUserId();
-        final String productId = receipt.getSku();
-        final PurchaseCallback callback = mPurchaseCallbacks.get(purchaseResponse.getRequestId());
-        mPurchaseCallbacks.remove(purchaseResponse.getRequestId());
+    @Override
+    public void onPurchaseResponse(PurchaseResponse response)  {
+        final Receipt receipt = response.getReceipt();
+        final String userId = response.getUserData() != null ? response.getUserData().getUserId() : "";
+        final String productId = receipt != null ? receipt.getSku() : mProductIds.get(response.getRequestId());
+        final PurchaseCallback callback = mPurchaseCallbacks.get(response.getRequestId());
+        mPurchaseCallbacks.remove(response.getRequestId());
+        mProductIds.remove(response.getRequestId());
 
-        switch (purchaseResponse.getPurchaseRequestStatus()) {
+        switch (response.getRequestStatus()) {
             case SUCCESSFUL:
                 validatePurchase(receipt, userId, callback);
                 break;
-            case ALREADY_ENTITLED:
+            case ALREADY_PURCHASED:
                 /*
                  * If the customer has already been entitled to the item, a receipt is not returned.
                  * Fulfillment is done unconditionally, we determine which item should be fulfilled by matching the
                  * request id returned from the initial request with the request id stored in the response.
                  */
-                mAlreadyEntitledRequestId = PurchasingManager.initiatePurchaseUpdatesRequest(Offset.BEGINNING);
+                mAlreadyPurchasedProductId = productId;
+                mAlreadyPurchasedRequestId = PurchasingService.getPurchaseUpdates(true);
+                mPurchaseCallbacks.put(mAlreadyPurchasedRequestId, callback);
                 break;
+            case NOT_SUPPORTED:
             case FAILED:
                 /*
                  * If the purchase failed for some reason, (The customer canceled the order, or some other
@@ -246,19 +246,23 @@ public class AmazonInAppService extends AbstractInAppService
 
     }
 
-    /**
-     * Is invoked once the call from initiatePurchaseUpdatesRequest is completed.
-     * On a successful response, a response object is passed which contains the request id, request status, a set of
-     * previously purchased receipts, a set of revoked skus, and the next offset if applicable. If a user downloads your
-     * application to another device, this call is used to sync up this device with all the user's purchases.
-     *
-     * @param purchaseUpdatesResponse
-     *            Response object containing the user's recent purchases.
-     */
-    public void onPurchaseUpdatesResponse(PurchaseUpdatesResponse purchaseUpdatesResponse) {
+    @Override
+    public void onPurchaseUpdatesResponse(PurchaseUpdatesResponse response) {
 
+        if (response.getRequestId().equals(mAlreadyPurchasedRequestId)) {
+            for (Receipt receipt: response.getReceipts()) {
+                if (receipt.getSku().equals(mAlreadyPurchasedProductId)) {
 
+                    final PurchaseCallback callback = mPurchaseCallbacks.get(response.getRequestId());
+                    if (callback != null) {
+                        mPurchaseCallbacks.remove(response.getRequestId());
+                    }
+
+                    validatePurchase(receipt, response.getUserData().getUserId(), callback);
+                }
+            }
+            mAlreadyPurchasedProductId = null;
+            mAlreadyPurchasedRequestId = null;
+        }
     }
-
-
 }

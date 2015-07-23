@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cocoon-plugin-inapps-android-amazon" version="1.0.0">
+        id="cocoon-plugin-inapps-android-amazon" version="1.0.1">
     <name>InAppsAmazon</name>
     <description>Amazon In-App Purchase implementation</description>
     <license>MPL 2.0</license>
@@ -10,7 +10,7 @@
         <source-file src="src/AmazonInAppServicePlugin.java" target-dir="src/com/ludei/inapps/cordova" />
         <source-file src="src/deps/com/ludei/inapps/amazon/AmazonInAppService.java" target-dir="src/com/ludei/inapps/amazon" />
         <source-file src="src/deps/com/ludei/inapps/amazon/AmazonObserver.java" target-dir="src/com/ludei/inapps/amazon" />
-        <source-file src="src/deps/in-app-purchasing-1.0.3.jar" target-dir="libs"/>
+        <source-file src="src/deps/in-app-purchasing-2.0.61.jar" target-dir="libs"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="InAppService" >
@@ -19,7 +19,14 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <application>
+                <receiver android:name = "com.amazon.device.iap.ResponseReceiver" >
+                    <intent-filter>
+                        <action android:name = "com.amazon.inapp.purchasing.NOTIFY"
+                            android:permission = "com.amazon.inapp.purchasing.Permission.NOTIFY" />
+                    </intent-filter>
+                </receiver>
+            </application>
         </config-file>
 
     </platform>
