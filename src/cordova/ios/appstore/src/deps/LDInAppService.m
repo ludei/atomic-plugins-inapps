@@ -25,7 +25,7 @@
 -(NSDictionary *) toDictionary
 {
     return @{@"productId": _productId ?: @"", @"title":_localizedTitle ?: @"", @"description": _localizedDescription ?: @"",
-             @"price:" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @"", @"currency" : _currency};
+             @"price" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @"", @"currency" : _currency};
 }
 
 +(instancetype) fromDictionary:(NSDictionary *) dic
