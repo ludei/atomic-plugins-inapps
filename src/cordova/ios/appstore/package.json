@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-inapps-ios-appstore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "iOS In-App Purchase API",
   "cordova": {
     "id": "cocoon-plugin-inapps-ios-appstore",

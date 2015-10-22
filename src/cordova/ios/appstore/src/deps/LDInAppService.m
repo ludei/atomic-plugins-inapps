@@ -25,18 +25,24 @@
 -(NSDictionary *) toDictionary
 {
     return @{@"productId": _productId ?: @"", @"title":_localizedTitle ?: @"", @"description": _localizedDescription ?: @"",
-             @"price" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @"", @"currency" : _currency};
+             @"price" : [NSNumber numberWithDouble:_price], @"localizedPrice": _localizedPrice ?: @"", @"currency" : _currency ?: @""};
 }
 
 +(instancetype) fromDictionary:(NSDictionary *) dic
 {
     LDInAppProduct * result = [[LDInAppProduct alloc] init];
-    result.productId = [dic objectForKey:@"productId"];
-    result.localizedTitle = [dic objectForKey:@"title"];
-    result.localizedDescription = [dic objectForKey:@"description"];
-    result.localizedPrice = [dic objectForKey:@"localizedPrice"];
-    result.price = [[dic objectForKey:@"price"] doubleValue];
-    result.currency = [dic objectForKey:@"currency"];
+    if (!dic || ![dic isKindOfClass:[NSDictionary class]]) {
+        dic = @{};
+    }
+    result.productId = [dic objectForKey:@"productId"] ?: @"";
+    result.localizedTitle = [dic objectForKey:@"title"] ?: @"";
+    result.localizedDescription = [dic objectForKey:@"description"] ?: @"";
+    result.localizedPrice = [dic objectForKey:@"localizedPrice"] ?: @"";
+    NSNumber * number = [dic objectForKey:@"price"];
+    if (number && [number isKindOfClass:[NSNumber class]]) {
+        result.price = [number doubleValue];
+    }
+    result.currency = [dic objectForKey:@"currency"] ?: @"";
     return result;
 }
 
@@ -569,10 +575,12 @@
 
 +(NSMutableArray *) loadProductsFromCache {
     
-    NSArray * array = [[NSUserDefaults standardUserDefaults] objectForKey:PRODUCTS_CACHE_KEY] ?: @[];
     NSMutableArray * result = [NSMutableArray array];
-    for (NSDictionary * dic in array) {
-        [result addObject:[LDInAppProduct fromDictionary:dic]];
+    NSArray * array = [[NSUserDefaults standardUserDefaults] objectForKey:PRODUCTS_CACHE_KEY] ?: @[];
+    if (array && [array isKindOfClass:[NSArray class]]) {
+        for (NSDictionary * dic in array) {
+            [result addObject:[LDInAppProduct fromDictionary:dic]];
+        }
     }
     return result;
 }
