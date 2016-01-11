@@ -20,33 +20,17 @@
     </ul>
     <h3>Setup your project</h3>
     <p>Releases are deployed to Cordova Plugin Registry. 
-    You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Cocoon.io Cloud Server.</p>
+    You only have to install the desired plugins using Cordova CLI and <a href="https://cocoon.io"/>Cocoon Cloud service</a>.</p>
     <ul>
-    <code>cordova plugin add com.ludei.inapps.ios.appstore;</code><br/>
-    <code>cordova plugin add com.ludei.inapps.android.googleplay;</code><br/>
-    <code>cordova plugin add con.ludei.inapps.android.amazon;</code><br/>
+    <code>cordova plugin add cocoon-plugin-inapps-ios-appstore;</code><br/>
+    <code>cordova plugin add cocoon-plugin-inapps-android-googleplay;</code><br/>
+    <code>cordova plugin add cocoon-plugin-inapps-android-amazon;</code><br/>
     </ul>
     <p>The following JavaScript files will be included in your html project by default during installation:</p>
     <ul>
     <li><a href="https://github.com/ludei/atomic-plugins-inapps/blob/master/src/cordova/js/cocoon_inapps.js">cocoon_inapps.js</a></li>
     <li><a href="https://github.com/ludei/cocoon-common/blob/master/src/js/cocoon.js">cocoon.js</a></li>
     </ul>
-    <h3>Documentation</h3>
-    <p>In this section you will find all the documentation you need for using this plugin in your Cordova project. 
-    Select the specific namespace below to open the relevant documentation section:</p>
-    <ul>
-    <li><a href="http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.html">Cocoon</a></li>
-    <li><a href="Cocoon.InApp.html">InApp</a></li>
-    </ul>
-    <h3>API Reference</h3>
-    <p>For a complete project that tests all the features provided in the API run the following command:</p>
-    <ul><code>gulp create-cordova</code></ul>
-    <br/><p>We hope you find everything you need to get going here, but if you stumble on any problems with the docs or the plugins, 
-    just drop us a line at our forum and we will do our best to help you out.</p>
-    <h3>Tools</h3>
-    <a href="http://support.ludei.com/hc/communities/public/topics"><img src="img/cocoon-tools-1.png" /></a>
-    <a href="https://cocoon.io/doc"><img src="img/cocoon-tools-2.png" /></a>
-    <a href="http://cocoon.io/"><img src="img/cocoon-tools-3.png" /></a>
     * @version 1.0
     */
 
