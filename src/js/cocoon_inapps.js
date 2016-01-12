@@ -462,13 +462,15 @@
          * @property {string} Cocoon.InApp.Product.description The description of the product.
          * @property {number} Cocoon.InApp.Product.localizedPrice The price of the product in local currency.
          * @property {number} Cocoon.InApp.Product.price The price of the product.
+         * @property {string} Cocoon.InApp.Product.currency The currency code in ISO 4217 format.
          */
         extension.Product = {
             productId: "productId",
             title: "title",
             description: "description",
             localizedPrice: "localizedPrice",
-            price: "price"
+            price: "price",
+            currency: "currency"
         };
 
         /**

@@ -37,6 +37,11 @@ public class InAppProduct {
     public String localizedPrice;
 
     /**
+     * The currency code in ISO 4217 format.
+     */
+    public String currency;
+
+    /**
      * Transforms a product information into a JSON object.
      *
      * @return A JSONObject containing the product information.
@@ -49,6 +54,7 @@ public class InAppProduct {
             o.putOpt("description", description);
             o.putOpt("localizedPrice", localizedPrice);
             o.put("price", price);
+            o.put("currency", currency);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -68,6 +74,7 @@ public class InAppProduct {
         product.description = object.optString("description");
         product.localizedPrice = object.optString("localizedPrice");
         product.price = object.optDouble("price");
+        product.currency = object.optDouble("currency");
         return product;
     }
  }
