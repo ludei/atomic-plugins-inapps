@@ -74,7 +74,7 @@ public class InAppProduct {
         product.description = object.optString("description");
         product.localizedPrice = object.optString("localizedPrice");
         product.price = object.optDouble("price");
-        product.currency = object.optDouble("currency");
+        product.currency = object.optString("currency");
         return product;
     }
  }
