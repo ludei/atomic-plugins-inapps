@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-inapps-android-amazon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Amazon In-App Purchase implementation",
   "cordova": {
     "id": "cocoon-plugin-inapps-android-amazon",

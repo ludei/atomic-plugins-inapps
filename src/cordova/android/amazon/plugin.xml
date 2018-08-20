@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cocoon-plugin-inapps-android-amazon" version="1.0.3">
+        id="cocoon-plugin-inapps-android-amazon" version="1.0.4">
     <name>InAppsAmazon</name>
     <description>Amazon In-App Purchase implementation</description>
     <license>MPL 2.0</license>
@@ -28,6 +28,6 @@
 
     </platform>
 
-    <dependency id="cocoon-plugin-inapps-android-common" />
+    <dependency id="cocoon-plugin-inapps-android-common" version="1.0.1" />
 
 </plugin>
