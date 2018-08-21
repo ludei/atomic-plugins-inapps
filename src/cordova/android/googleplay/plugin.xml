@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cocoon-plugin-inapps-android-googleplay" version="1.0.3">
+        id="cocoon-plugin-inapps-android-googleplay" version="2.0.0">
     <name>InAppsGooglePlay</name>
     <description>Android Google Play In-App Purchase implementation</description>
     <license>MPL 2.0</license>
@@ -12,19 +12,19 @@
         <source-file src="src/deps/com/ludei/inapps/googleplay/Utils.java" target-dir="src/com/ludei/inapps/googleplay" />
         <source-file src="src/deps/com/android/vending/billing/IInAppBillingService.aidl" target-dir="src/com/android/vending/billing" />
 
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="app/src/main/res/xml/config.xml" parent="/*">
             <feature name="InAppService" >
                 <param name="android-package" value="com.ludei.inapps.cordova.GooglePlayInAppServicePlugin"/>
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest">
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
             <uses-permission android:name="com.android.vending.BILLING" />
         </config-file>
 
     </platform>
 
-    <dependency id="cocoon-plugin-inapps-android-common" version="1.0.1" />
+    <dependency id="cocoon-plugin-inapps-android-common" />
 
 </plugin>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cocoon-plugin-inapps-android-amazon" version="1.0.4">
+        id="cocoon-plugin-inapps-android-amazon" version="2.0.0">
     <name>InAppsAmazon</name>
     <description>Amazon In-App Purchase implementation</description>
     <license>MPL 2.0</license>
@@ -11,13 +11,13 @@
         <source-file src="src/deps/com/ludei/inapps/amazon/AmazonInAppService.java" target-dir="src/com/ludei/inapps/amazon" />
         <source-file src="src/deps/in-app-purchasing-2.0.61.jar" target-dir="libs"/>
 
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="app/src/main/res/xml/config.xml" parent="/*">
             <feature name="InAppService" >
                 <param name="android-package" value="com.ludei.inapps.cordova.AmazonInAppServicePlugin"/>
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
             <receiver android:name = "com.amazon.device.iap.ResponseReceiver" >
                 <intent-filter>
                     <action android:name = "com.amazon.inapp.purchasing.NOTIFY"
@@ -28,6 +28,6 @@
 
     </platform>
 
-    <dependency id="cocoon-plugin-inapps-android-common" version="1.0.1" />
+    <dependency id="cocoon-plugin-inapps-android-common" />
 
 </plugin>
