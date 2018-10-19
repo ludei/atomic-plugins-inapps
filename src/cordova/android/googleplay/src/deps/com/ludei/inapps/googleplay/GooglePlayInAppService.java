@@ -114,6 +114,7 @@ public class GooglePlayInAppService extends AbstractInAppService
         product.localizedPrice = object.optString("price");
         product.title = object.optString("title");
         product.description = object.optString("description");
+        product.currency = object.optString("price_currency_code");
         String price;
         if (object.has("price_amount_micros")) {
             price = String.valueOf(((float) object.optInt("price_amount_micros")) / 1000000);

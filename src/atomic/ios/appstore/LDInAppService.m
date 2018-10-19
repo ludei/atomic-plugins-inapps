@@ -81,11 +81,11 @@
     NSError * error = nil;
     if (response.invalidProductIdentifiers.count > 0) {
         NSString * msg = @"Invalid products: ";
-	for (NSString * pid in response.invalidProductIdentifiers) {
-	    msg = [msg stringByAppendingString:pid];
-	    msg = [msg stringByAppendingString:@","];
-	}
-	error = MAKE_ERROR(0, msg);
+    for (NSString * pid in response.invalidProductIdentifiers) {
+        msg = [msg stringByAppendingString:pid];
+        msg = [msg stringByAppendingString:@","];
+    }
+    error = MAKE_ERROR(0, msg);
     }
     _completion(response.products, error);
     [self dispose:request];
@@ -101,7 +101,7 @@
       LDInAppFetchDelegate * this = self;
       //simulate CFAutoRelease for iOS 6
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-	  CFRelease((__bridge CFTypeRef)(this));
+      CFRelease((__bridge CFTypeRef)(this));
       });
 }
 
@@ -377,6 +377,11 @@
 
 #pragma mark SKPaymentTransactionObserver
 
+- (BOOL)paymentQueue:(SKPaymentQueue *)queue shouldAddStorePayment:(SKPayment *)payment forProduct:(SKProduct *)product {
+    NSLog(@"Payment Queue Product = %@", product);
+    return true;
+}
+
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions NS_AVAILABLE_IOS(3_0)
 {
     if (!_started) {
@@ -398,7 +403,7 @@
                 [self notifyPurchaseStarted:transaction.payment.productIdentifier];
             default:
                 break;
-        }			
+        }
     }
 }
 
